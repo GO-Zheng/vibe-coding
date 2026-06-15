@@ -1,0 +1,8 @@
+# Rule sync metadata for adapters.
+# Source files under rules/ are pure Markdown (no frontmatter).
+# Adapters read this manifest to generate tool-specific formats.
+
+rules:
+  - source: core/communication.md
+    description: 沟通与回复语言
+    alwaysApply: true
