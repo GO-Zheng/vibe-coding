@@ -6,3 +6,15 @@ rules:
   - source: core/communication.md
     description: 沟通与回复语言
     alwaysApply: true
+
+  - source: core/writing-style.md
+    description: 书写风格 (中文、标点、标识符、标题、commit)
+    globs: "**/*"
+
+  - source: docs/diagrams.md
+    description: 文档图示 (Mermaid 流程图/时序图/状态图)
+    globs: "**/*.md"
+
+  - source: docs/directory-tree.md
+    description: 文档目录结构 (tree 风格)
+    globs: "**/*.md"
