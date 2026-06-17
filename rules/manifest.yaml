@@ -11,6 +11,10 @@ rules:
     description: 书写风格 (中文、标点、标识符、标题、commit)
     globs: "**/*"
 
+  - source: core/coding-principles.md
+    description: 代码原则 (最小改动、SOLID、规模限制、如实说明)
+    globs: "**/*"
+
   - source: docs/diagrams.md
     description: 文档图示 (Mermaid 流程图/时序图/状态图)
     globs: "**/*.md"

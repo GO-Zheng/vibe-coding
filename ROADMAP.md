@@ -11,7 +11,7 @@
 
 - [x] `rules/core/communication.md` — 已定稿
 - [x] `rules/manifest.yaml` + Cursor `.mdc` 生成
-- [ ] `rules/core/coding-principles.md`
+- [x] `rules/core/coding-principles.md` — 已定稿
 - [ ] `rules/core/git-safety.md`
 - [ ] 其余 workflows / languages
 

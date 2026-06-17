@@ -8,7 +8,7 @@
 
 | 目录 | 用途 | 状态 |
 |------|------|------|
-| `core/` | 沟通、书写风格、代码原则、git 安全 | `communication`, `writing-style` 已定稿 |
+| `core/` | 沟通、书写风格、代码原则、git 安全 | `communication`, `writing-style`, `coding-principles` 已定稿 |
 | `docs/` | 文档专用: 图示、目录结构 | `diagrams`, `directory-tree` 已定稿 |
 | `workflows/` | 开发流程、审查、git 工作流 | 待迁入 |
 | `languages/` | 语言专项 (rust 等) | 待迁入 |
@@ -176,5 +176,6 @@ Hermes 没有独立的 "rules" 目录. 简短全局偏好可写入 `SOUL.md`:
 |------|------|
 | [core/communication.md](./core/communication.md) | 对话: 用中文回复 |
 | [core/writing-style.md](./core/writing-style.md) | 通用书写: 中文、标点、标识符、标题、commit |
+| [core/coding-principles.md](./core/coding-principles.md) | 代码: 最小改动、SOLID、规模、如实说明、错误处理 |
 | [docs/diagrams.md](./docs/diagrams.md) | 文档: Mermaid 图示 |
 | [docs/directory-tree.md](./docs/directory-tree.md) | 文档: tree 目录结构 |
