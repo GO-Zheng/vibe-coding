@@ -22,3 +22,7 @@ rules:
   - source: docs/directory-tree.md
     description: 文档目录结构 (tree 风格)
     globs: "**/*.md"
+
+  - source: workflows/git-workflow.md
+    description: Git 工作流 (分支、提交、合并、安全)
+    globs: "**/*"

@@ -12,22 +12,20 @@
 - [x] `rules/core/communication.md` — 已定稿
 - [x] `rules/manifest.yaml` + Cursor `.mdc` 生成
 - [x] `rules/core/coding-principles.md` — 已定稿
-- [ ] `rules/core/git-safety.md`
+- [x] `rules/workflows/git-workflow.md` — 已定稿 (整合 commit 规范 + 分支工作流)
 - [ ] 其余 workflows / languages
 
 从以下来源提取通用内容, 写入 `rules/`:
 
-| 来源 | 目标 | 动作 |
-|------|------|------|
-| Cursor User Rules | `rules/core/` | 拆分: 沟通、git 安全、代码原则 |
-| WiQunTools `.cursor/rules/00-rust-standards` | `rules/languages/rust.md` | 迁移 |
-| WiQunTools `.cursor/rules/01-testing` | `rules/languages/rust-testing.md` | 迁移 (wiqun 测试结构可留注释) |
-| WiQunTools `.cursor/rules/02-coding-style` | `rules/core/coding-style.md` | 迁移, 去重 User Rules |
-| WiQunTools `.cursor/rules/03-development-workflow` | `rules/workflows/development.md` | 迁移 |
-| WiQunTools `.cursor/rules/04-design-principles` | `rules/workflows/design-principles.md` | 迁移, 去重 |
-| WiQunTools `.cursor/rules/05-code-review` | `rules/workflows/code-review.md` | 迁移 |
-| WiQunTools `.cursor/rules/06-git-workflow` | `rules/workflows/git-workflow.md` | 迁移, 与 User Rules 去重 |
-| WiQunTools `.cursor/rules/07-patterns` | `rules/workflows/patterns.md` | 迁移 |
+| 来源 | 目标 | 动作 | 状态 |
+|------|------|------|------|
+| WiQunTools `.cursor/rules/00-rust-standards` | `rules/languages/rust.md` | 迁移 | ⏳ 待 WiQunTools 仓库拉取 |
+| WiQunTools `.cursor/rules/01-testing` | `rules/languages/rust-testing.md` | 迁移 | ⏳ 同上 |
+| WiQunTools `.cursor/rules/02-coding-style` | `rules/core/coding-style.md` | 迁移, 去重 | ⏳ 同上 |
+| WiQunTools `.cursor/rules/03-development-workflow` | `rules/workflows/development.md` | 迁移 | ⏳ 同上 |
+| WiQunTools `.cursor/rules/04-design-principles` | `rules/workflows/design-principles.md` | 迁移, 去重 | ⏳ 同上 |
+| WiQunTools `.cursor/rules/05-code-review` | `rules/workflows/code-review.md` | 迁移 | ⏳ 同上 |
+| WiQunTools `.cursor/rules/07-patterns` | `rules/workflows/patterns.md` | 迁移 | ⏳ 同上 |
 
 同步时 adapters 会:
 - **Cursor**: 生成 `.mdc` 到 `~/.cursor/rules/` (或保留源 `.md` 供引用)
@@ -59,7 +57,6 @@ WiQunTools `.claude/skills/writing-design-specs/`:
 
 @rules/core/communication.md
 @rules/core/coding-principles.md
-@rules/core/git-safety.md
 @rules/workflows/git-workflow.md
 ```
 

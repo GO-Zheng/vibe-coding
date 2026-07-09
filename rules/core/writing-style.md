@@ -24,12 +24,6 @@
 - 不跳级 (`##` 下直接用 `###`, 不要跳到 `####`)
 - 避免一篇文档堆叠过多 `#` 层级
 
-## Commit message
-
-- **type** 保留英文: `feat`, `fix`, `refactor`, `test`, `docs`, `chore` 等
-- **描述与正文** 使用中文
-- 例: `feat: 添加 WAL 崩溃恢复`, 详细流程见后续 `git-workflow` 规则
-
 ## 文档专用格式
 
 写 Markdown 文档时的图示与目录结构, 见 `rules/docs/`:
