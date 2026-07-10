@@ -39,6 +39,10 @@ rules:
     description: 文档同步 (提交/plan 完成后检查文档一致性)
     globs: "**/*"
 
+  - source: workflows/domain-modeling.md
+    description: 领域建模 (CONTEXT.md 术语定义, 进入项目先读)
+    globs: "**/*"
+
   - source: languages/rust.md
     description: Rust 规范 (clippy warning 必须处理)
     globs: "**/*.rs"
