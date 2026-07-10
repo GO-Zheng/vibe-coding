@@ -18,3 +18,13 @@
 ```
 
 - 审核时会以 `[ASSUMPTION]` 为检查重点, 让审校者快速定位决策点
+
+## 技能替换
+
+- code review 使用 `code-review` 技能, 不使用 Superpowers 自带的 `code-reviewer`
+- TDD 使用 Superpowers 的 `test-driven-development` 技能, 补充以下步骤:
+
+  **写测试前先确认 seam (测试接缝)**:
+  - 写下要测试的 seam (哪个接口、哪个边界), 和用户确认后再开始写测试
+  - 不在未确认的 seam 上写测试
+

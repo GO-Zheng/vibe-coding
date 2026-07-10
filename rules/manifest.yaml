@@ -7,6 +7,10 @@ rules:
     description: 沟通与回复语言
     alwaysApply: true
 
+  - source: workflows/routing.md
+    description: 工作流路由 (按任务类型选择大改/小改入口)
+    alwaysApply: true
+
   - source: core/writing-style.md
     description: 书写风格 (中文、标点、标识符、标题、commit)
     globs: "**/*"
