@@ -14,6 +14,10 @@
 2. 改完后必须等用户审核通过后方可 commit
 3. 完整计划完成后, 经允许将新分支 squash 合并回原分支, 随后删除新分支
 
+## 文档同步
+
+- commit 前按 `rules/workflows/documentation-sync.md` 检查并更新相关文档
+
 ## 推送
 
 - 不推送远程仓库, 由用户手动操作

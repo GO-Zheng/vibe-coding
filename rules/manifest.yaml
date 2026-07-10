@@ -23,6 +23,26 @@ rules:
     description: 文档目录结构 (tree 风格)
     globs: "**/*.md"
 
+  - source: docs/document-format.md
+    description: 文档格式规范 (使用 SKILL 格式)
+    globs: "**/*.md"
+
   - source: workflows/git-workflow.md
     description: Git 工作流 (分支、提交、合并、安全)
     globs: "**/*"
+
+  - source: workflows/documentation-sync.md
+    description: 文档同步 (提交/plan 完成后检查文档一致性)
+    globs: "**/*"
+
+  - source: languages/rust.md
+    description: Rust 规范 (clippy warning 必须处理)
+    globs: "**/*.rs"
+
+  - source: languages/python.md
+    description: Python 规范 (统一使用 uv 管理包)
+    globs: "**/*.py"
+
+  - source: core/superpower.md
+    description: Superpowers 补充 (plan/spec 统一存放路径)
+    alwaysApply: true

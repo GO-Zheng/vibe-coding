@@ -12,41 +12,25 @@
 - [x] `rules/core/communication.md` — 已定稿
 - [x] `rules/manifest.yaml` + Cursor `.mdc` 生成
 - [x] `rules/core/coding-principles.md` — 已定稿
-- [x] `rules/workflows/git-workflow.md` — 已定稿 (整合 commit 规范 + 分支工作流)
-- [ ] 其余 workflows / languages
-
-从以下来源提取通用内容, 写入 `rules/`:
-
-| 来源 | 目标 | 动作 | 状态 |
-|------|------|------|------|
-| WiQunTools `.cursor/rules/00-rust-standards` | `rules/languages/rust.md` | 迁移 | ⏳ 待 WiQunTools 仓库拉取 |
-| WiQunTools `.cursor/rules/01-testing` | `rules/languages/rust-testing.md` | 迁移 | ⏳ 同上 |
-| WiQunTools `.cursor/rules/02-coding-style` | `rules/core/coding-style.md` | 迁移, 去重 | ⏳ 同上 |
-| WiQunTools `.cursor/rules/03-development-workflow` | `rules/workflows/development.md` | 迁移 | ⏳ 同上 |
-| WiQunTools `.cursor/rules/04-design-principles` | `rules/workflows/design-principles.md` | 迁移, 去重 | ⏳ 同上 |
-| WiQunTools `.cursor/rules/05-code-review` | `rules/workflows/code-review.md` | 迁移 | ⏳ 同上 |
-| WiQunTools `.cursor/rules/07-patterns` | `rules/workflows/patterns.md` | 迁移 | ⏳ 同上 |
+- [x] `rules/workflows/git-workflow.md` — 已定稿
+- [ ] 其余 workflows / languages — 按需自行整理
 
 同步时 adapters 会:
-- **Cursor**: 生成 `.mdc` 到 `~/.cursor/rules/` (或保留源 `.md` 供引用)
+- **Cursor**: 生成 `.mdc` 到 `~/.cursor/rules/`
 - **Claude Code**: 生成 `.claude/rules/` 带 `paths` frontmatter
 
 ## 阶段 2: 收敛 Skills
 
-从 WiQunTools `.cursor/skills/` 迁入 `skills/` (agentskills.io 标准目录结构):
+按需自行编写, 遵循 agentskills.io 标准目录结构:
 
-| 现有文件 | 目标目录 | 备注 |
-|----------|----------|------|
-| `acceptance.md` | `skills/acceptance-report/` | 含 `scripts/acceptance.py` 引用 |
-| `brainstorming.md` | `skills/brainstorming/` | 与 Superpowers 重叠, 保留中文版 |
-| `debugging.md` | `skills/systematic-debugging/` | 同上 |
-| `planning.md` | `skills/writing-plans/` | 同上 |
-| `tdd.md` | `skills/test-driven-development/` | 同上 |
-| `verification.md` | `skills/verification-before-completion/` | 同上 |
-
-WiQunTools `.claude/skills/writing-design-specs/`:
-- 内容偏 wiqun 项目 (引用 WiQunTools/docs/)
-- 暂留 WiQunTools, 或迁入 `skills/writing-design-specs/` 并参数化路径
+```
+skills/
+└── skill-name/
+    ├── SKILL.md
+    ├── scripts/
+    ├── references/
+    └── assets/
+```
 
 ## 阶段 3: 编写 AGENTS.md
 
@@ -75,11 +59,7 @@ WiQunTools `.claude/skills/writing-design-specs/`:
 
 ## 阶段 5: 清理临时存放
 
-WiQunTools 迁移完成后:
-
-- [ ] 删除 `WiQunTools/.cursor/` (或留 README 指向 vibe-coding)
-- [ ] 评估 `WiQunTools/.claude/skills/` 去留
-- [ ] Cursor User Rules 精简为仅 Cursor 特有项 (不主动 commit 等)
+- [ ] Cursor User Rules 精简为仅 Cursor 特有项
 - [ ] 运行 `install.sh` 确保全局 symlink 生效
 
 ## 阶段 6: 后续增强 (可选)
