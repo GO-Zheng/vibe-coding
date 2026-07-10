@@ -20,11 +20,13 @@ vibe-coding/
 ├── README.md              # 本文件
 ├── ROADMAP.md             # 迁移与整理计划
 ├── rules/                 # 可组合规则片段 (SSOT)
-│   ├── core/              # 沟通、代码原则、git 安全
-│   ├── workflows/         # 开发流程、审查、git 工作流
-│   └── languages/         # 语言专项 (如 rust)
+│   ├── core/              # 沟通、书写风格、代码原则、Superpowers 补充
+│   ├── workflows/         # Git 工作流、文档同步
+│   ├── docs/              # 图示、目录结构、文档格式
+│   └── languages/         # 语言专项 (Rust、Python)
 ├── skills/                # Agent Skills 标准 (skill-name/SKILL.md)
-├── scripts/               # skills 引用的工具脚本
+│   └── plan-review/       # 双 agent plan 审核技能
+├── scripts/               # (预留) 工具脚本
 └── adapters/              # 同步到各工具
     ├── install.sh         # 总入口
     ├── common.sh
@@ -70,8 +72,6 @@ Claude Code **目前仍不原生读取** `AGENTS.md` (截至 2026-06, GitHub #62
 
 或 `ln -sf AGENTS.md CLAUDE.md`. 其他工具 (Cursor, Codex, Xcode) 可直接读 `AGENTS.md`.
 
-## 来源与迁移
+## 已定稿规则
 
-当前内容临时存放在 `WiQunTools/.cursor/` 和 `WiQunTools/.claude/`, 将逐步迁入本仓库. 详见 [ROADMAP.md](./ROADMAP.md).
-
-已定稿: [rules/core/communication.md](./rules/core/communication.md) — 通过 `rules/manifest.yaml` 同步到各工具.
+所有已定稿规则见 [rules/README.md](./rules/README.md) 底部清单。

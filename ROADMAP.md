@@ -13,7 +13,11 @@
 - [x] `rules/manifest.yaml` + Cursor `.mdc` 生成
 - [x] `rules/core/coding-principles.md` — 已定稿
 - [x] `rules/workflows/git-workflow.md` — 已定稿
-- [ ] 其余 workflows / languages — 按需自行整理
+- [x] `rules/core/superpower.md` — 已定稿
+- [x] `rules/docs/document-format.md` — 已定稿
+- [x] `rules/workflows/documentation-sync.md` — 已定稿
+- [x] `rules/languages/rust.md` — 已定稿
+- [x] `rules/languages/python.md` — 已定稿
 
 同步时 adapters 会:
 - **Cursor**: 生成 `.mdc` 到 `~/.cursor/rules/`
@@ -21,7 +25,8 @@
 
 ## 阶段 2: 收敛 Skills
 
-按需自行编写, 遵循 agentskills.io 标准目录结构:
+- [x] `skills/plan-review/` — 已创建 (双 agent plan 审核)
+- [ ] 按需继续编写, 遵循 agentskills.io 标准目录结构:
 
 ```
 skills/
@@ -41,6 +46,7 @@ skills/
 
 @rules/core/communication.md
 @rules/core/coding-principles.md
+@rules/core/superpower.md
 @rules/workflows/git-workflow.md
 ```
 
