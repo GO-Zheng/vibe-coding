@@ -10,7 +10,7 @@
 
 ## 分支工作流
 
-1. 修改前从原分支创建新分支; 原分支优先读项目 `AGENTS.md` 约定, 未明示则询问
+1. 在 plan-review / grilling 达成共识之后、implement 之前: 从原分支创建新分支; 原分支优先读项目 `AGENTS.md` 约定, 未明示则询问 (见 `workflows/routing.md`)
 2. 改完后必须等用户审核通过后方可 commit
 3. 完整计划完成后, 经允许将新分支 squash 合并回原分支, 随后删除新分支
 
