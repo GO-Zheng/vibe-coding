@@ -16,7 +16,8 @@
 
 ## 文档同步
 
-- commit 前按 `rules/workflows/documentation-sync.md` 检查并更新相关文档
+- code-review 通过后、用户确认 commit 前: 按 `rules/workflows/documentation-sync.md` 检查并更新相关文档
+- 不把工作区外 `superpower/` 过程制品当作项目文档引用; 有效结论写入仓内 `docs/`
 
 ## 推送
 

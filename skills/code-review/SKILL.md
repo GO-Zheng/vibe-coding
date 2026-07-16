@@ -49,13 +49,18 @@ description: 对代码 diff 进行双 agent 交叉审核并自动循环修订。
 
 修订时同步检查 `rules/workflows/documentation-sync.md` 确认相关文档是否需更新。
 
-### Step 6: 输出
+### Step 6: 文档同步
+
+按 `rules/workflows/documentation-sync.md` 检查并更新相关文档 (或确认无需变更). 过程制品在 `superpower/`; 仓内仍有效的结论写入本仓 `docs/` 等, 不链到仓库外 plan/spec.
+
+### Step 7: 输出
 
 向用户汇报最终结果:
 
 > Code Review 完成: `<diff 范围>`
 > 双审均 APPROVED, 共 x 轮循环
 > 最终修订包括: ...
+> 文档同步: <已更新路径 / 无需变更>
 > 可以提交到当前分支。
 
 ## 用户确认
