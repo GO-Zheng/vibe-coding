@@ -19,10 +19,11 @@ usage() {
 Usage: install.sh [OPTIONS] [TARGET...]
 
 Targets (default: all):
-  --cursor    Sync to ~/.cursor/
-  --claude    Sync to ~/.claude/ (with CLAUDE.md bridge)
-  --hermes    Sync to ~/.hermes/skills/
-  --xcode     Sync to Xcode ClaudeAgentConfig
+  --antigravity Sync to ~/.gemini/config/ (Antigravity IDE)
+  --cursor      Sync to ~/.cursor/
+  --claude      Sync to ~/.claude/ (with CLAUDE.md bridge)
+  --hermes      Sync to ~/.hermes/skills/
+  --xcode       Sync to Xcode ClaudeAgentConfig
 
 Options:
   --dry-run   Print actions without writing
@@ -30,13 +31,14 @@ Options:
 
 Examples:
   ./adapters/install.sh
-  ./adapters/install.sh --claude --cursor
+  ./adapters/install.sh --antigravity
   ./adapters/install.sh --dry-run
 EOF
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --antigravity) TARGETS+=("antigravity") ;;
     --cursor) TARGETS+=("cursor") ;;
     --claude) TARGETS+=("claude") ;;
     --hermes) TARGETS+=("hermes") ;;
@@ -49,7 +51,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ ${#TARGETS[@]} -eq 0 ]]; then
-  TARGETS=("cursor" "claude" "hermes" "xcode")
+  TARGETS=("antigravity" "cursor" "claude" "hermes" "xcode")
 fi
 
 log "source: $VIBE_CODING_ROOT"

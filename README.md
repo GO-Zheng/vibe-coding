@@ -6,6 +6,7 @@
 
 | 工具 | 规则入口 | Skills 目录 | 备注 |
 |------|----------|-------------|------|
+| **Antigravity** | `~/.gemini/config/AGENTS.md` | `~/.gemini/config/skills/` | 原生支持 `AGENTS.md` 与 `SKILL.md` 标准 |
 | **Cursor** | User Rules + `.cursor/rules/` | `~/.cursor/skills/` 或项目 `.cursor/skills/` | 也读项目根 `AGENTS.md` |
 | **Claude Code** | `CLAUDE.md` (桥接) | `~/.claude/skills/` | **不原生读 AGENTS.md**, 用 `@AGENTS.md` 或 symlink |
 | **Hermes** | `SOUL.md` (可选) | `~/.hermes/skills/` + `external_dirs` | 兼容 [agentskills.io](https://agentskills.io) |
@@ -18,6 +19,7 @@
 ./adapters/install.sh
 
 # 只同步某一个工具
+./adapters/install.sh --antigravity
 ./adapters/install.sh --cursor
 ./adapters/install.sh --claude
 ./adapters/install.sh --hermes
@@ -46,6 +48,7 @@ vibe-coding/
 └── adapters/         # 同步到各工具
     ├── install.sh    # 总入口
     ├── common.sh
+    ├── antigravity.sh
     ├── cursor.sh
     ├── claude.sh
     ├── hermes.sh
