@@ -14,13 +14,31 @@ sync_antigravity() {
   log "=== Antigravity ==="
   ensure_dir "$ANTIGRAVITY_HOME"
 
-  # Skills: symlink each skill-name/ directory into ~/.gemini/config/skills/
-  link_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
+  # Skills: copy each skill directory into ~/.gemini/config/skills/
+  copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
-  # AGENTS.md: global pointer
-  link_path "$VIBE_CODING_ROOT/AGENTS.md" "$ANTIGRAVITY_HOME/AGENTS.md"
+  # Convert any remaining third-party symlinks in SKILLS_DST (e.g. superpowers skills) to real physical directories
+  if [[ -d "$SKILLS_DST" ]]; then
+    for item in "$SKILLS_DST"/*; do
+      if [[ -L "$item" ]]; then
+        local target
+        target="$(readlink -f "$item")"
+        if [[ -d "$target" ]]; then
+          rm -f "$item"
+          cp -r "$target" "$item"
+          log "converted symlink skill to physical directory: $item"
+        fi
+      fi
+    done
+  fi
 
-  log "Antigravity rules and skills synchronized to $ANTIGRAVITY_HOME"
+  # AGENTS.md: expand @references (e.g. @rules/communication.md) & auto-include alwaysApply rules
+  expand_antigravity_agents "$ANTIGRAVITY_HOME/AGENTS.md"
+
+  # Rules: copy rules directory flatly into ~/.gemini/config/rules/
+  copy_rules_dir "$ANTIGRAVITY_HOME/rules"
+
+  log "Antigravity rules and skills deployed to $ANTIGRAVITY_HOME"
 }
 
 sync_antigravity

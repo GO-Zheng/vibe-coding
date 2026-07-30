@@ -14,11 +14,11 @@ sync_cursor() {
   log "=== Cursor ==="
   ensure_dir "$CURSOR_HOME"
 
-  # Skills: symlink each skill-name/ directory
-  link_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
+  # Skills: copy each skill-name/ directory
+  copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
-  # AGENTS.md: optional global pointer (Cursor also reads project AGENTS.md)
-  link_path "$VIBE_CODING_ROOT/AGENTS.md" "$CURSOR_HOME/AGENTS.md"
+  # AGENTS.md: optional global entry (Cursor also reads project AGENTS.md)
+  copy_path "$VIBE_CODING_ROOT/AGENTS.md" "$CURSOR_HOME/AGENTS.md"
 
   # Rules: generate .mdc from rules/ + manifest.yaml
   generate_cursor_rules

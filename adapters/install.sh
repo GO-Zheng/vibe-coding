@@ -20,10 +20,10 @@ Usage: install.sh [OPTIONS] [TARGET...]
 
 Targets (default: all):
   --antigravity Sync to ~/.gemini/config/ (Antigravity IDE)
-  --cursor      Sync to ~/.cursor/
   --claude      Sync to ~/.claude/ (with CLAUDE.md bridge)
+  --codex       Sync to ~/.codex/
+  --cursor      Sync to ~/.cursor/
   --hermes      Sync to ~/.hermes/skills/
-  --xcode       Sync to Xcode ClaudeAgentConfig
 
 Options:
   --dry-run   Print actions without writing
@@ -39,10 +39,10 @@ EOF
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --antigravity) TARGETS+=("antigravity") ;;
-    --cursor) TARGETS+=("cursor") ;;
     --claude) TARGETS+=("claude") ;;
+    --codex)  TARGETS+=("codex") ;;
+    --cursor) TARGETS+=("cursor") ;;
     --hermes) TARGETS+=("hermes") ;;
-    --xcode)  TARGETS+=("xcode") ;;
     --dry-run) DRY_RUN=true ;;
     -h|--help) usage; exit 0 ;;
     *) die "unknown argument: $1 (try --help)" ;;
@@ -51,7 +51,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ ${#TARGETS[@]} -eq 0 ]]; then
-  TARGETS=("antigravity" "cursor" "claude" "hermes" "xcode")
+  TARGETS=("antigravity" "cursor" "claude" "codex" "hermes")
 fi
 
 log "source: $VIBE_CODING_ROOT"

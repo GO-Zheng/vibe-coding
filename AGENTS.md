@@ -1,23 +1,26 @@
-# vibe-coding 通用指令
+# Rule
 
-> 跨工具 SSOT 入口. 细则在 `rules/`, 工作流在 `skills/`.
-> Claude Code 通过 `@` 引用展开; Cursor 通过 adapters 生成 `.mdc`.
+> Claude Code 原生引用展开；Antigravity / Cursor / Xcode 等通过 adapters 自动编译展开与生成。
 
+## 1. 核心与原则 (Core)
 @rules/core/communication.md
+@rules/core/coding-principles.md
+@rules/core/writing-style.md
+@rules/core/superpower.md
 
-## 代码原则
+## 2. 工作流 (Workflows)
+@rules/workflows/routing.md
+@rules/workflows/git-workflow.md
+@rules/workflows/documentation-sync.md
+@rules/workflows/domain-modeling.md
 
-> 待迁入: rules/core/coding-principles.md
+## 3. 文档规范 (Docs)
+@rules/docs/diagrams.md
+@rules/docs/directory-tree.md
+@rules/docs/document-format.md
 
-- 最小改动: 只改任务相关的代码
-- 遵循项目现有风格和约定
-- 好代码应自解释, 注释只写非显而易见的业务逻辑
-- 先理解再动手, 用命令验证后再声称完成
+## 4. 语言专项 (Languages)
+@rules/languages/rust.md
+@rules/languages/python.md
 
-## Git
 
-> 待迁入: rules/core/git-safety.md
-
-- 只在用户明确要求时 commit
-- 不 force push main/master
-- 不 skip hooks

@@ -15,8 +15,8 @@ sync_hermes() {
   log "=== Hermes ==="
   ensure_dir "$HERMES_HOME"
 
-  # Skills: symlink each skill directory
-  link_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
+  # Skills: copy each skill directory
+  copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
   # Recommend external_dirs in config (non-destructive — only print hint)
   log "Hermes external_dirs (optional, add to $CONFIG_FILE):"
