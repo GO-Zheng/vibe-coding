@@ -85,7 +85,7 @@ disable-model-invocation: true
 
 `disable-model-invocation: true`: 仅用户显式触发, Agent 不自动加载 (适合 slash command 类 skill).
 
-本仓库通过 `adapters/cursor.sh` symlink 到 `~/.cursor/skills/`.
+本仓库通过 `adapters/cursor.sh` 物理复制到 `~/.cursor/skills/`.
 
 ---
 
@@ -110,7 +110,7 @@ description: Creates implementation plans before coding. Use when starting multi
 
 调用: `Skill(skill-name)` 或对话中自动匹配 description.
 
-本仓库通过 `adapters/claude.sh` symlink 到 `~/.claude/skills/`.
+本仓库通过 `adapters/claude.sh` 物理复制到 `~/.claude/skills/`.
 
 ---
 
@@ -140,7 +140,7 @@ Instructions here.
 
 `~/.hermes/config.yaml` 可配置 `skills.external_dirs` 指向本仓库 `skills/` 目录.
 
-本仓库通过 `adapters/hermes.sh` symlink 到 `~/.hermes/skills/`.
+本仓库通过 `adapters/hermes.sh` 物理复制到 `~/.hermes/skills/`.
 
 ---
 
@@ -152,7 +152,7 @@ Instructions here.
 
 安装后需重启 Xcode / Claude Agent 使 skills 生效.
 
-本仓库通过 `adapters/xcode.sh` 同步.
+本仓库未提供 Xcode 适配器, 需手动复制 skill 目录到上述路径.
 
 ---
 
@@ -162,7 +162,6 @@ Instructions here.
 ./adapters/install.sh --cursor
 ./adapters/install.sh --claude
 ./adapters/install.sh --hermes
-./adapters/install.sh --xcode
 ./adapters/install.sh          # 全部
 ```
 

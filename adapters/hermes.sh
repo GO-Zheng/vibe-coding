@@ -27,7 +27,7 @@ sync_hermes() {
   if [[ -f "$CONFIG_FILE" ]] && grep -q "vibe-coding" "$CONFIG_FILE" 2>/dev/null; then
     log "external_dirs already references vibe-coding"
   else
-    warn "add external_dirs manually if you prefer single source over ~/.hermes/skills/ symlinks"
+    warn "add external_dirs manually if you prefer single source over copying into ~/.hermes/skills/"
   fi
 }
 

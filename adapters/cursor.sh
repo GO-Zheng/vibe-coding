@@ -23,7 +23,7 @@ sync_cursor() {
   # Rules: generate .mdc from rules/ + manifest.yaml
   generate_cursor_rules
 
-  log "Cursor User Rules in app settings: keep tool-specific prefs only (see ROADMAP.md)"
+  log "Cursor User Rules in app settings: keep tool-specific prefs only"
 }
 
 sync_cursor

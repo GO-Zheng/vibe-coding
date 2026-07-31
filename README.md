@@ -37,7 +37,6 @@ vibe-coding/
 ├── AGENTS.md          # 跨工具通用指令 (SSOT 入口，包含 @rules 引用)
 ├── CLAUDE.md          # Claude Code 桥接文件 (由 sync 自动生成)
 ├── README.md          # 项目使用指南与架构说明
-├── ROADMAP.md         # 迁移、演进与整理计划
 ├── rules/             # 可组合规则片段 (SSOT 源码)
 │   ├── manifest.yaml  # 规则元数据 (Cursor .mdc 生成映射与 alwaysApply 标记)
 │   ├── core/          # 沟通、书写风格、代码原则、Superpowers 补充
