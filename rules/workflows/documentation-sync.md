@@ -12,7 +12,7 @@ commit 或完成 plan 时, 检查本次变更是否影响相关文档, 有影响
 
 ## 过程制品 vs 仓内文档
 
-- 工作区根 `superpower/plans/`、`superpower/specs/` 是过程制品, **不进项目仓库**, 也 **不从项目文档引用**
+- 工作区根 `superpowers/plans/`、`superpowers/specs/` 是过程制品, **不进项目仓库**, 也 **不从项目文档引用**
 - 对仓库仍有效的结论、约束、对照表, 须同步进本仓 `docs/` (或 DESIGN / ARCHITECTURE), 再以仓内路径引用
 
 ## 操作要求

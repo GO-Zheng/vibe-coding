@@ -9,7 +9,7 @@ description: 对 implementation plan 进行双 agent 交叉审核并自动循环
 
 ## 前置条件
 
-- plan 文件已写入工作区根 `superpower/plans/` 或指定路径
+- plan 文件已写入工作区根 `superpowers/plans/` 或指定路径
 - plan 遵循 writing-plans 技能的标准格式
 
 ## 流程

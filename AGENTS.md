@@ -6,7 +6,7 @@
 @rules/core/communication.md
 @rules/core/coding-principles.md
 @rules/core/writing-style.md
-@rules/core/superpower.md
+@rules/core/superpowers.md
 
 ## 2. 工作流 (Workflows)
 @rules/workflows/routing.md

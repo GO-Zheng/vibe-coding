@@ -51,6 +51,6 @@ rules:
     description: Python 规范 (统一使用 uv 管理包)
     globs: "**/*.py"
 
-  - source: core/superpower.md
+  - source: core/superpowers.md
     description: Superpowers 补充 (plan/spec 统一存放路径)
     alwaysApply: true

@@ -2,11 +2,11 @@
 
 ## 文件存放
 
-- implementation plan 统一保存到工作区根目录下的 `superpower/plans/`
-- design spec 统一保存到工作区根目录下的 `superpower/specs/`
+- implementation plan 统一保存到工作区根目录下的 `superpowers/plans/`
+- design spec 统一保存到工作区根目录下的 `superpowers/specs/`
 - 目录不存在则自动创建
 - 不写入各项目仓库内的 `docs/superpowers/` 路径
-- `superpower/` 是过程制品: **不从项目文档引用**; 对仓库仍有效的结论须同步进该项目仓内 `docs/` (见 `workflows/documentation-sync.md`)
+- `superpowers/` 是过程制品: **不从项目文档引用**; 对仓库仍有效的结论须同步进该项目仓内 `docs/` (见 `workflows/documentation-sync.md`)
 
 ## Plan 约定
 

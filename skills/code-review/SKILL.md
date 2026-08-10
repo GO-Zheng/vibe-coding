@@ -51,7 +51,7 @@ description: 对代码 diff 进行双 agent 交叉审核并自动循环修订。
 
 ### Step 6: 文档同步
 
-按 `rules/workflows/documentation-sync.md` 检查并更新相关文档 (或确认无需变更). 过程制品在 `superpower/`; 仓内仍有效的结论写入本仓 `docs/` 等, 不链到仓库外 plan/spec.
+按 `rules/workflows/documentation-sync.md` 检查并更新相关文档 (或确认无需变更). 过程制品在 `superpowers/`; 仓内仍有效的结论写入本仓 `docs/` 等, 不链到仓库外 plan/spec.
 
 ### Step 7: 输出
 
