@@ -5,6 +5,7 @@
 ## 1. 核心与原则 (Core)
 @rules/core/communication.md
 @rules/core/coding-principles.md
+@rules/core/honor-and-dishonor.md
 @rules/core/writing-style.md
 @rules/core/superpowers.md
 
