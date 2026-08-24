@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sync vibe-coding to Cursor (~/.cursor/)
+# 将 vibe-coding 同步到 Cursor (~/.cursor/).
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,13 +14,13 @@ sync_cursor() {
   log "=== Cursor ==="
   ensure_dir "$CURSOR_HOME"
 
-  # Skills: copy each skill-name/ directory
+  # 技能目录: 复制每个 skill-name/ 目录.
   copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
-  # AGENTS.md: optional global entry (Cursor also reads project AGENTS.md)
+  # AGENTS.md: 可选的全局入口, Cursor 也会读取项目级 AGENTS.md.
   copy_path "$VIBE_CODING_ROOT/AGENTS.md" "$CURSOR_HOME/AGENTS.md"
 
-  # Rules: generate .mdc from rules/ + manifest.yaml
+  # 规则文件: 根据 rules/ 和 manifest.yaml 生成 .mdc 文件.
   generate_cursor_rules
 
   log "Cursor User Rules in app settings: keep tool-specific prefs only"

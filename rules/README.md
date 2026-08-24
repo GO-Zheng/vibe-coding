@@ -8,10 +8,10 @@
 
 | 目录 | 用途 |
 |------|------|
-| `core/` | 沟通、书写风格、代码原则、Superpowers 补充 |
-| `docs/` | 文档专用: 图示、目录结构、文档格式 |
+| `core/` | 沟通, 书写风格, 代码原则, Superpowers 补充 |
+| `docs/` | 文档专用: 图示, 目录结构, 文档格式 |
 | `workflows/` | Git 工作流 |
-| `languages/` | 语言专项 (Rust、Python) |
+| `languages/` | 语言专项 (Rust, Python) |
 
 ## 编写约定
 
@@ -25,7 +25,7 @@
 # 规则标题
 
 - 可执行的指令
-- 具体、无歧义
+- 具体, 无歧义
 ```
 
 ### manifest 条目模板
@@ -175,12 +175,16 @@ Hermes 没有独立的 "rules" 目录. 简短全局偏好可写入 `SOUL.md`:
 | 文件 | 说明 |
 |------|------|
 | [core/communication.md](./core/communication.md) | 对话: 用中文回复 |
-| [core/writing-style.md](./core/writing-style.md) | 通用书写: 中文、标点、标识符、标题 |
-| [core/coding-principles.md](./core/coding-principles.md) | 代码: 最小改动、SOLID、规模、如实说明、错误处理 |
-| [core/superpowers.md](./core/superpowers.md) | Superpowers: plan/spec 存放路径、[ASSUMPTION] 标签 |
+| [core/writing-style.md](./core/writing-style.md) | 通用书写: 中文, 标点, 标识符, 标题 |
+| [core/coding-principles.md](./core/coding-principles.md) | 代码: 最小改动, SOLID, 规模, 如实说明, 错误处理 |
+| [core/honor-and-dishonor.md](./core/honor-and-dishonor.md) | AI 行为准则: 查阅, 确认, 复用, 验证与遵循规范 |
+| [core/rule-conflict-resolution.md](./core/rule-conflict-resolution.md) | 冲突: 发现违反 RULES 时暂停并等待用户决策 |
+| [core/superpowers.md](./core/superpowers.md) | Superpowers: plan/spec 存放路径, [ASSUMPTION] 标签 |
+| [core/testing-scope.md](./core/testing-scope.md) | 测试: 默认只执行必要的定向测试 |
+| [core/twelve-factor-app.md](./core/twelve-factor-app.md) | 应用: 12-Factor App 配置, 部署, 运行与运维原则 |
 | [docs/diagrams.md](./docs/diagrams.md) | 文档: Mermaid 图示 |
 | [docs/directory-tree.md](./docs/directory-tree.md) | 文档: tree 目录结构 |
 | [docs/document-format.md](./docs/document-format.md) | 文档: 通用文档使用 SKILL 格式 |
-| [workflows/git-workflow.md](./workflows/git-workflow.md) | Git: 提交规范、分支工作流、推送 |
+| [workflows/git-workflow.md](./workflows/git-workflow.md) | Git: 提交规范, 分支工作流, 推送 |
 | [languages/rust.md](./languages/rust.md) | Rust: clippy warning 必须处理 |
 | [languages/python.md](./languages/python.md) | Python: 统一使用 uv 管理包 |

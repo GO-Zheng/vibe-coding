@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vibe-coding adapters — shared helpers
+# vibe-coding 适配器: 共享 helper
 
 set -euo pipefail
 
@@ -20,7 +20,7 @@ ensure_dir() {
   fi
 }
 
-# Copy src -> dst (replaces existing file/dir or symlink).
+# 复制 src 到 dst, 替换现有文件、目录或符号链接.
 copy_path() {
   local src="$1"
   local dst="$2"
@@ -51,12 +51,12 @@ copy_path() {
   fi
 }
 
-# Alias for backward compatibility
+# 向后兼容的别名.
 link_path() {
   copy_path "$@"
 }
 
-# Copy each skill directory (containing SKILL.md) in src_dir into dst_parent (flat structure)
+# 将 src_dir 中包含 SKILL.md 的 skill 目录复制到 dst_parent, 使用扁平结构.
 copy_skill_dirs() {
   local src_dir="$1"
   local dst_parent="$2"
@@ -83,12 +83,12 @@ copy_skill_dirs() {
   fi
 }
 
-# Alias for backward compatibility
+# 向后兼容的别名.
 link_skill_dirs() {
   copy_skill_dirs "$@"
 }
 
-# Copy rules directory flatly to dst_rules_dir (all .md rule files placed directly in dst_rules_dir)
+# 将 rules 目录扁平复制到 dst_rules_dir, 所有 .md 规则文件直接放入目标目录.
 copy_rules_dir() {
   local dst_rules="$1"
   local src_rules="$VIBE_CODING_ROOT/rules"
@@ -109,7 +109,7 @@ copy_rules_dir() {
   log "rules deployed flatly -> $dst_rules"
 }
 
-# Sync rules/ to dst_rules preserving subdirectory structure (for Claude Code & Xcode Agent)
+# 同步 rules/ 到 dst_rules 并保留子目录结构, 用于 Claude Code 和 Xcode Agent.
 sync_claude_rules() {
   local dst_rules="${1:-${CLAUDE_HOME:-$HOME/.claude}/rules}"
   local src_rules="$VIBE_CODING_ROOT/rules"
@@ -129,7 +129,7 @@ sync_claude_rules() {
   log "rules synced with directory structure -> $dst_rules"
 }
 
-# Write CLAUDE.md bridge for Claude Code (does not natively read AGENTS.md)
+# 为 Claude Code 写入 CLAUDE.md 桥接文件, 因为它原生不读取 AGENTS.md.
 write_claude_bridge() {
   local target_dir="$1"
   local bridge_file="${target_dir%/}/CLAUDE.md"
@@ -151,7 +151,7 @@ write_claude_bridge() {
   log "wrote Claude bridge: $bridge_file"
 }
 
-# Generate Cursor .mdc files from rules/manifest.yaml + pure Markdown sources
+# 根据 rules/manifest.yaml 和纯 Markdown 源文件生成 Cursor .mdc 文件.
 generate_cursor_rules() {
   local manifest="$VIBE_CODING_ROOT/rules/manifest.yaml"
   local rules_root="$VIBE_CODING_ROOT/rules"
@@ -218,7 +218,7 @@ for e in entries:
 PY
 }
 
-# Expand @references in AGENTS.md and auto-include alwaysApply rules for Antigravity
+# 展开 AGENTS.md 中的 @ 引用, 并为 Antigravity 自动包含 alwaysApply 规则.
 expand_antigravity_agents() {
   local src_agents="$VIBE_CODING_ROOT/AGENTS.md"
   local manifest="$VIBE_CODING_ROOT/rules/manifest.yaml"
@@ -278,7 +278,7 @@ for line in lines:
             print(f"[vibe-coding] WARN: @ reference not found: {ref}", file=sys.stderr)
     out_lines.append(line)
 
-# Also check manifest.yaml for alwaysApply: true rules
+# 同时检查 manifest.yaml 中 alwaysApply: true 的规则.
 if os.path.isfile(manifest):
     entries = []
     entry = None

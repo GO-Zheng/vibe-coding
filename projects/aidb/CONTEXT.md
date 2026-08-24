@@ -26,7 +26,7 @@
 
 **Raft**: 通过 OpenRaft 0.9 实现的分布式共识协议.
 
-**MetaRaft**: 管理集群元数据的 Raft 组, 处理成员变更、slot 分配等控制面操作, 低频.
+**MetaRaft**: 管理集群元数据的 Raft 组, 处理成员变更, slot 分配等控制面操作, 低频.
 
 **MultiRaft**: 多个数据面 Raft 组, 每个 Group 负责一部分 slot 的数据复制与共识, 高吞吐.
 
@@ -34,7 +34,7 @@
 
 **Slot**: 16384 个槽位之一, CRC16 计算; 与 Redis Cluster 兼容. 每个 slot 归属于一个 Group.
 
-**LifecycleManager**: 管理 Group 的生命周期 (创建、启动、停止、销毁).
+**LifecycleManager**: 管理 Group 的生命周期 (创建, 启动, 停止, 销毁).
 
 **Slot 迁移**: 将 slot 从一个 Group 迁移到另一个, 在线操作, 不中断读写.
 

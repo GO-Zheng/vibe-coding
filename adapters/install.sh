@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# vibe-coding — install/sync to AI coding tools
+# vibe-coding: 安装并同步到 AI 编程工具.
 #
-# Usage:
-#   ./adapters/install.sh              # sync all tools
-#   ./adapters/install.sh --cursor     # sync one tool
-#   ./adapters/install.sh --dry-run    # preview only
+# 用法:
+#   ./adapters/install.sh              # 同步所有工具
+#   ./adapters/install.sh --cursor     # 同步单个工具
+#   ./adapters/install.sh --dry-run    # 仅预览
 
 set -euo pipefail
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sync vibe-coding to Codex
+# 将 vibe-coding 同步到 Codex.
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,13 +14,13 @@ sync_codex() {
   log "=== Codex ==="
   ensure_dir "$CODEX_HOME"
 
-  # AGENTS.md: expand @references & auto-include alwaysApply rules for Codex
+  # AGENTS.md: 展开 @ 引用, 并为 Codex 自动包含 alwaysApply 规则.
   expand_antigravity_agents "$CODEX_HOME/AGENTS.md"
 
-  # Rules: sync rules with directory structure
+  # 规则目录: 保留目录结构同步规则.
   sync_claude_rules "$CODEX_HOME/rules"
 
-  # Skills under ~/.codex/skills/
+  # 技能目录: 同步到 ~/.codex/skills/.
   copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
   log "Codex rules and skills deployed to $CODEX_HOME"

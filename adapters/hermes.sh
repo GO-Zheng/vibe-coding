@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Sync vibe-coding to Hermes (~/.hermes/skills/ + external_dirs hint)
+# 将 vibe-coding 同步到 Hermes (~/.hermes/skills/), 并提示 external_dirs 配置.
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -15,10 +15,10 @@ sync_hermes() {
   log "=== Hermes ==="
   ensure_dir "$HERMES_HOME"
 
-  # Skills: copy each skill directory
+  # 技能目录: 复制每个 skill 目录.
   copy_skill_dirs "$SKILLS_SRC" "$SKILLS_DST"
 
-  # Recommend external_dirs in config (non-destructive — only print hint)
+  # 提示在配置中添加 external_dirs, 不修改配置文件.
   log "Hermes external_dirs (optional, add to $CONFIG_FILE):"
   log "  skills:"
   log "    external_dirs:"

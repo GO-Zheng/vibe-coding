@@ -7,10 +7,6 @@ rules:
     description: 沟通与回复语言
     alwaysApply: true
 
-  - source: workflows/routing.md
-    description: 工作流路由 (按任务类型选择大改/小改入口)
-    alwaysApply: true
-
   - source: core/writing-style.md
     description: 书写风格 (中文、标点、标识符、标题、commit)
     globs: "**/*"
@@ -18,6 +14,22 @@ rules:
   - source: core/coding-principles.md
     description: 代码原则 (最小改动、SOLID、规模限制、如实说明)
     globs: "**/*"
+
+  - source: core/honor-and-dishonor.md
+    description: AI 行为准则 (查阅、确认、复用、验证与遵循规范)
+    alwaysApply: true
+
+  - source: core/rule-conflict-resolution.md
+    description: RULES 冲突处理 (暂停、说明利弊并等待用户决策)
+    alwaysApply: true
+
+  - source: core/twelve-factor-app.md
+    description: 12-Factor App 原则 (配置、部署、运行与运维)
+    alwaysApply: true
+
+  - source: core/testing-scope.md
+    description: 测试范围 (敏捷开发下优先执行必要的定向测试)
+    alwaysApply: true
 
   - source: docs/diagrams.md
     description: 文档图示 (Mermaid 流程图/时序图/状态图)
