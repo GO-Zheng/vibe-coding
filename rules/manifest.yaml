@@ -4,15 +4,15 @@
 
 rules:
   - source: core/communication.md
-    description: 沟通与回复语言
+    description: 统一中文回复和标点偏好
     alwaysApply: true
 
   - source: core/writing-style.md
-    description: 书写规范
+    description: 编写注释, 文档和 commit message 时遵循书写规范
     globs: "**/*"
 
   - source: core/coding-principles.md
-    description: 代码原则与质量约束
+    description: 修改代码时遵循最小改动, 边界和验证原则
     globs: "**/*"
 
   - source: core/honor-and-dishonor.md
@@ -20,49 +20,49 @@ rules:
     alwaysApply: true
 
   - source: core/rule-conflict-resolution.md
-    description: RULES 冲突时暂停并等待决策
+    description: 发现 RULES, AGENTS.md 或 CONTEXT.md 冲突时暂停并请求决策
     alwaysApply: true
 
   - source: core/twelve-factor-app.md
-    description: 12-Factor App 原则
+    description: 设计服务配置, 部署和运行时行为时使用 12-Factor 原则
     alwaysApply: true
 
   - source: core/testing-scope.md
-    description: 测试范围 (优先定向测试)
+    description: 根据变更影响选择最小必要测试范围
     alwaysApply: true
 
   - source: docs/diagrams.md
-    description: Mermaid 文档图示
+    description: 编写 Markdown 流程, 时序或状态图时使用 Mermaid
     globs: "**/*.md"
 
   - source: docs/directory-tree.md
-    description: 文档目录结构
+    description: 在 Markdown 中展示目录结构时遵循 tree 格式
     globs: "**/*.md"
 
   - source: docs/document-format.md
-    description: 文档格式规范
+    description: 编写项目说明文档时遵循 SKILL 格式
     globs: "**/*.md"
 
   - source: workflows/git-workflow.md
-    description: Git 工作流与提交规范
+    description: 创建分支, 提交或推送代码时遵循 Git 工作流
     globs: "**/*"
 
   - source: workflows/documentation-sync.md
-    description: 文档同步规范
+    description: 变更代码或计划完成时检查文档同步
     globs: "**/*"
 
   - source: workflows/domain-modeling.md
-    description: 领域术语规范
+    description: 进入项目或遇到领域术语时遵循 CONTEXT.md
     globs: "**/*"
 
   - source: languages/rust.md
-    description: Rust 规范
+    description: 修改 Rust 代码时遵循 Clippy 零 warning 约束
     globs: "**/*.rs"
 
   - source: languages/python.md
-    description: Python 包管理规范
+    description: 修改 Python 项目时使用 uv 管理依赖和环境
     globs: "**/*.py"
 
   - source: core/superpowers.md
-    description: Superpowers 工作流与过程制品约定
+    description: 执行 plan, 测试 seam 和用户确认流程时使用
     alwaysApply: true

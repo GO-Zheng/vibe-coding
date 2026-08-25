@@ -8,16 +8,16 @@
 
 | 目录 | 用途 |
 |------|------|
-| `core/` | 沟通, 书写风格, 代码原则, Superpowers 补充 |
+| `core/` | 通用行为, 书写, 代码和流程规则 |
 | `docs/` | 文档专用: 图示, 目录结构, 文档格式 |
-| `workflows/` | Git 工作流 |
+| `workflows/` | Git, 文档同步和领域术语 |
 | `languages/` | 语言专项 (Rust, Python) |
 
 ## 编写约定
 
-1. **源文件**: 纯 Markdown, 一条规则一个文件, 理想 < 50 行
-2. **元数据**: 在 `manifest.yaml` 声明 `description`, `alwaysApply`, `globs`
-3. **定稿流程**: 写好源文件 → 更新 manifest → 审阅 → `adapters/install.sh`
+1. 源文件使用纯 Markdown, 一条规则一个文件, 尽量少于 50 行.
+2. 在 `manifest.yaml` 声明 `description`, 必要时声明 `alwaysApply` 或 `globs`.
+3. 写好源文件后更新 manifest, 审阅, 再运行 `adapters/install.sh`.
 
 ### 源文件模板 (本仓库 SSOT)
 
@@ -34,11 +34,11 @@
 rules:
   - source: core/communication.md
     description: 简短描述 (Cursor intelligent apply / 规则选择器显示)
-    alwaysApply: true          # 每次对话加载
+    alwaysApply: true  # 每次对话加载
 
   - source: languages/rust.md
     description: Rust 开发规范
-    globs: "**/*.rs"           # 仅匹配文件在上下文中时加载
+    globs: "**/*.rs"   # 仅匹配文件在上下文中时加载
 ```
 
 ---
@@ -127,41 +127,6 @@ paths:
 
 ---
 
-### Hermes — SOUL.md / 配置
-
-- **官方文档**: [hermes-agent.nousresearch.com/docs/user-guide/configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)
-- **路径**: `~/.hermes/SOUL.md` (身份与始终生效偏好)
-
-Hermes 没有独立的 "rules" 目录. 简短全局偏好可写入 `SOUL.md`:
-
-```markdown
-# 身份
-
-用中文回复用户. 标点默认使用英文标点.
-```
-
-复杂工作流用 Skills (见 `skills/README.md`), 不用本目录.
-
----
-
-### Xcode — Coding Assistant
-
-- **参考**: [Apple Newsroom — Xcode 26.3 agentic coding](https://www.apple.com/newsroom/2026/02/xcode-26-point-3-unlocks-the-power-of-agentic-coding/)
-- **路径**: `~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/`
-
-```markdown
-# 沟通
-
-- 用中文回复
-- 标点默认用英文标点
-```
-
-使用 `AGENTS.md` 或 `CLAUDE.md` (`@AGENTS.md` 桥接). 能力较 CLI 工具有限 (无 hooks/MCP).
-
-本仓库通过 `adapters/xcode.sh` 同步.
-
----
-
 ## 同步
 
 ```bash
@@ -176,7 +141,7 @@ Hermes 没有独立的 "rules" 目录. 简短全局偏好可写入 `SOUL.md`:
 |------|------|
 | [core/communication.md](./core/communication.md) | 对话: 用中文回复 |
 | [core/writing-style.md](./core/writing-style.md) | 通用书写: 中文, 标点, 标识符, 标题 |
-| [core/coding-principles.md](./core/coding-principles.md) | 代码: 最小改动, SOLID, 规模, 如实说明, 错误处理 |
+| [core/coding-principles.md](./core/coding-principles.md) | 代码: 最小改动, 复用, 错误处理, 验证 |
 | [core/honor-and-dishonor.md](./core/honor-and-dishonor.md) | AI 行为准则: 查阅, 确认, 复用, 验证与遵循规范 |
 | [core/rule-conflict-resolution.md](./core/rule-conflict-resolution.md) | 冲突: 发现违反 RULES 时暂停并等待用户决策 |
 | [core/superpowers.md](./core/superpowers.md) | Superpowers: plan/spec 存放路径, [ASSUMPTION] 标签 |
@@ -186,5 +151,7 @@ Hermes 没有独立的 "rules" 目录. 简短全局偏好可写入 `SOUL.md`:
 | [docs/directory-tree.md](./docs/directory-tree.md) | 文档: tree 目录结构 |
 | [docs/document-format.md](./docs/document-format.md) | 文档: 通用文档使用 SKILL 格式 |
 | [workflows/git-workflow.md](./workflows/git-workflow.md) | Git: 提交规范, 分支工作流, 推送 |
+| [workflows/documentation-sync.md](./workflows/documentation-sync.md) | 文档: 变更前检查并同步相关文档 |
+| [workflows/domain-modeling.md](./workflows/domain-modeling.md) | 领域: 遵循项目 `CONTEXT.md` 术语 |
 | [languages/rust.md](./languages/rust.md) | Rust: clippy warning 必须处理 |
 | [languages/python.md](./languages/python.md) | Python: 统一使用 uv 管理包 |

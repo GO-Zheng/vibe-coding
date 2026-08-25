@@ -1,24 +1,19 @@
 # Git 工作流
 
-## 提交规范
+## 提交
 
-遵循 Conventional Commits 格式.
+- 遵循 Conventional Commits; `type` 使用英文, 描述和正文使用中文.
+- 常用类型: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`.
+- 示例: `feat: 添加 WAL 崩溃恢复`.
 
-- **type** 保留英文: `feat`, `fix`, `refactor`, `test`, `docs`, `chore` 等
-- **描述与正文** 使用中文, 简述变更目的
-- 例: `feat: 添加 WAL 崩溃恢复`
+## 分支与集成
 
-## 分支工作流
-
-1. 在 `plan-review` / `grilling` 达成共识之后, implement 之前: 从原分支创建新分支; 原分支优先读项目 `AGENTS.md` 约定, 未明示则询问
-2. 改完后必须等用户审核通过后方可 commit
-3. 完整计划完成后, 经允许将新分支 squash 合并回原分支, 随后删除新分支
-
-## 文档同步
-
-- code-review 通过后, 用户确认 commit 前: 按 `rules/workflows/documentation-sync.md` 检查并更新相关文档
-- 不把工作区外 `superpowers/` 过程制品当作项目文档引用; 有效结论写入仓内 `docs/`
+- 设计或方案达成共识后, implement 前, 从原分支创建工作分支.
+- 创建前先读取项目 `AGENTS.md`; 约定不明确时主动询问用户.
+- 改动完成并经用户审核后才能 commit.
+- 计划完成且用户允许后, 将工作分支 squash 合并并删除.
+- code review 通过后, 用户确认 commit 前, 按 `documentation-sync` 检查文档.
 
 ## 推送
 
-- 不推送远程仓库, 由用户手动操作
+- 不自动推送远程仓库, 只能由用户手动操作.
