@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Use when implemented code changes may need review before commit.
+description: 在实现完成、提交前需要检查代码变更时使用.
 ---
 
 # Code Review

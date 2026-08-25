@@ -1,6 +1,6 @@
 ---
 name: plan-review
-description: Use when an implementation plan may need review before execution.
+description: 在 implementation plan 执行前需要检查计划时使用.
 ---
 
 # Plan Review

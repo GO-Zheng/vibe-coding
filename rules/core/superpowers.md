@@ -8,9 +8,9 @@
 
 所有任务统一遵循以下流程:
 
-`brainstorming` → `writing-plans` → `plan-review` → `grilling` → 开分支 → implement → `code-review` → `documentation-sync` → 用户确认后 commit
+`brainstorming` → `writing-plans` → `plan-review` → `grilling` → `create branch` → `implement` → `code-review` → `documentation-sync` → `user approval` → `commit`
 
-用户明确要求使用 `quick` skill 时, 可以改用其轻量工作流, 不强制执行上述完整流程. `quick` 不是默认模式, 且不能绕过 RULES、项目 `AGENTS.md`、`CONTEXT.md`、文档同步、测试范围或用户确认.
+用户明确要求使用 `quick` skill 时, 可以改用其轻量工作流, 不强制执行上述完整流程. `quick` 不是默认模式, 且不能绕过 RULES, 项目 `AGENTS.md`, `CONTEXT.md`, 文档同步, 测试范围或用户确认.
 
 ## 计划执行确认
 

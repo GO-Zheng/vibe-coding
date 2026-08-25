@@ -48,7 +48,8 @@ vibe-coding/
 │   ├── grilling/      # 盘问式设计澄清技能
 │   ├── handoff/       # 会话交接与摘要生成技能
 │   ├── plan-review/   # 单 Agent 计划审核技能
-│   └── quick/         # 轻便快捷工作流技能
+│   ├── quick/         # 轻便快捷工作流技能
+│   └── quick-test/    # Git diff 定向测试技能
 └── adapters/          # 各 AI 工具适配与部署脚本
     ├── install.sh     # 总控入口脚本
     ├── common.sh      # 共享 helper (含 Antigravity 展开, Cursor 编译等核心逻辑)

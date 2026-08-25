@@ -20,7 +20,7 @@ ensure_dir() {
   fi
 }
 
-# 复制 src 到 dst, 替换现有文件、目录或符号链接.
+# 复制 src 到 dst, 替换现有文件, 目录或符号链接.
 copy_path() {
   local src="$1"
   local dst="$2"

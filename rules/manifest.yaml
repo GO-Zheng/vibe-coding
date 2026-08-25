@@ -8,23 +8,23 @@ rules:
     alwaysApply: true
 
   - source: core/writing-style.md
-    description: 书写风格 (中文、标点、标识符、标题、commit)
+    description: 书写风格 (中文, 标点, 标识符, 标题, commit)
     globs: "**/*"
 
   - source: core/coding-principles.md
-    description: 代码原则 (最小改动、SOLID、规模限制、如实说明)
+    description: 代码原则 (最小改动, SOLID, 规模限制, 如实说明)
     globs: "**/*"
 
   - source: core/honor-and-dishonor.md
-    description: AI 行为准则 (查阅、确认、复用、验证与遵循规范)
+    description: AI 行为准则 (查阅, 确认, 复用, 验证与遵循规范)
     alwaysApply: true
 
   - source: core/rule-conflict-resolution.md
-    description: RULES 冲突处理 (暂停、说明利弊并等待用户决策)
+    description: RULES 冲突处理 (暂停, 说明利弊并等待用户决策)
     alwaysApply: true
 
   - source: core/twelve-factor-app.md
-    description: 12-Factor App 原则 (配置、部署、运行与运维)
+    description: 12-Factor App 原则 (配置, 部署, 运行与运维)
     alwaysApply: true
 
   - source: core/testing-scope.md
@@ -44,7 +44,7 @@ rules:
     globs: "**/*.md"
 
   - source: workflows/git-workflow.md
-    description: Git 工作流 (分支、提交、合并、安全)
+    description: Git 工作流 (分支, 提交, 合并, 安全)
     globs: "**/*"
 
   - source: workflows/documentation-sync.md
