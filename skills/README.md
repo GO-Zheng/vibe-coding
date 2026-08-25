@@ -41,7 +41,7 @@ skills/
 ```markdown
 ---
 name: systematic-debugging
-description: Diagnoses bugs systematically before proposing fixes. Use when encountering errors, test failures, or unexpected behavior.
+description: 系统诊断问题后再提出修复方案. 在遇到错误、测试失败或异常行为时使用.
 ---
 
 # 系统性调试
@@ -74,7 +74,7 @@ description: Diagnoses bugs systematically before proposing fixes. Use when enco
 ```markdown
 ---
 name: test-driven-development
-description: Enforces TDD red-green-refactor cycle. Use when implementing features or fixing bugs.
+description: 强制遵循 TDD 的 red-green-refactor 循环. 在实现功能或修复 bug 时使用.
 disable-model-invocation: true
 ---
 
@@ -98,7 +98,7 @@ disable-model-invocation: true
 ```markdown
 ---
 name: writing-plans
-description: Creates implementation plans before coding. Use when starting multi-step features or refactors.
+description: 在编码前创建 implementation plan. 开始多步骤功能或重构时使用.
 ---
 
 # 实施计划
@@ -124,7 +124,7 @@ description: Creates implementation plans before coding. Use when starting multi
 ```markdown
 ---
 name: my-skill
-description: What it does and when to use it.
+description: 说明 skill 的作用和使用时机.
 version: 1.0.0
 platforms: [macos, linux]
 metadata:

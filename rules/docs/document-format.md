@@ -17,8 +17,8 @@
 
 ```markdown
 ---
-name: 文档名 (短横线分隔, 如 project-overview)
-description: 一句话说明文档用途, 帮助 AI 判断何时引用
+name: project-overview
+description: 用于说明项目概览和使用方式
 ---
 
 # 文档标题

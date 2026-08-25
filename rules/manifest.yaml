@@ -8,61 +8,61 @@ rules:
     alwaysApply: true
 
   - source: core/writing-style.md
-    description: 书写风格 (中文, 标点, 标识符, 标题, commit)
+    description: 书写规范
     globs: "**/*"
 
   - source: core/coding-principles.md
-    description: 代码原则 (最小改动, SOLID, 规模限制, 如实说明)
+    description: 代码原则与质量约束
     globs: "**/*"
 
   - source: core/honor-and-dishonor.md
-    description: AI 行为准则 (查阅, 确认, 复用, 验证与遵循规范)
+    description: AI 行为准则
     alwaysApply: true
 
   - source: core/rule-conflict-resolution.md
-    description: RULES 冲突处理 (暂停, 说明利弊并等待用户决策)
+    description: RULES 冲突时暂停并等待决策
     alwaysApply: true
 
   - source: core/twelve-factor-app.md
-    description: 12-Factor App 原则 (配置, 部署, 运行与运维)
+    description: 12-Factor App 原则
     alwaysApply: true
 
   - source: core/testing-scope.md
-    description: 测试范围 (敏捷开发下优先执行必要的定向测试)
+    description: 测试范围 (优先定向测试)
     alwaysApply: true
 
   - source: docs/diagrams.md
-    description: 文档图示 (Mermaid 流程图/时序图/状态图)
+    description: Mermaid 文档图示
     globs: "**/*.md"
 
   - source: docs/directory-tree.md
-    description: 文档目录结构 (tree 风格)
+    description: 文档目录结构
     globs: "**/*.md"
 
   - source: docs/document-format.md
-    description: 文档格式规范 (使用 SKILL 格式)
+    description: 文档格式规范
     globs: "**/*.md"
 
   - source: workflows/git-workflow.md
-    description: Git 工作流 (分支, 提交, 合并, 安全)
+    description: Git 工作流与提交规范
     globs: "**/*"
 
   - source: workflows/documentation-sync.md
-    description: 文档同步 (提交/plan 完成后检查文档一致性)
+    description: 文档同步规范
     globs: "**/*"
 
   - source: workflows/domain-modeling.md
-    description: 领域建模 (CONTEXT.md 术语定义, 进入项目先读)
+    description: 领域术语规范
     globs: "**/*"
 
   - source: languages/rust.md
-    description: Rust 规范 (clippy warning 必须处理)
+    description: Rust 规范
     globs: "**/*.rs"
 
   - source: languages/python.md
-    description: Python 规范 (统一使用 uv 管理包)
+    description: Python 包管理规范
     globs: "**/*.py"
 
   - source: core/superpowers.md
-    description: Superpowers 补充 (plan/spec 统一存放路径)
+    description: Superpowers 工作流与过程制品约定
     alwaysApply: true

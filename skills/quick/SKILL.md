@@ -1,6 +1,6 @@
 ---
 name: quick
-description: 在用户明确要求对小范围、低风险、需求明确的变更采用轻量快速工作流时使用.
+description: 在用户明确要求对小范围低风险变更使用轻量工作流时使用.
 ---
 
 # Quick Workflow
