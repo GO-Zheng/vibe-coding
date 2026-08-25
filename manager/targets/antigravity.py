@@ -20,14 +20,13 @@ END = "<!-- vibe-coding:end -->"
 
 def rules_path(user_home: Path, variant: str | None = None) -> Path:
     del variant
-    return user_home / ".gemini" / "GEMINI.md"
+    return user_home / ".gemini" / "config" / "GEMINI.md"
 
 
 def skills_root(user_home: Path, variant: str | None = None) -> Path:
     if variant not in {"cli", "ide"}:
         raise ValueError("Antigravity target 必须指定 cli 或 ide")
-    directory = "antigravity-cli" if variant == "cli" else "antigravity"
-    return user_home / ".gemini" / directory / "skills"
+    return user_home / ".gemini" / "config" / "skills"
 
 
 def install_rules(

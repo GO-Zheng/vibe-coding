@@ -87,14 +87,12 @@ def _paths_for_target(
             [base / "plugins", base / "extensions"],
         )
     if target in {"antigravity-cli", "antigravity-ide"}:
-        base = user_home / ".gemini"
-        skill_directory = "antigravity-cli" if variant == "cli" else "antigravity"
+        base = user_home / ".gemini" / "config"
         return (
-            [base / skill_directory / "skills", base / "extensions"],
-            [base / "settings.json", base / "mcp.json",
-             base / skill_directory / "settings.json",
-             base / skill_directory / "mcp_config.json"],
-            [base / "extensions", base / skill_directory],
+            [base / "skills", base / "plugins", base / "extensions"],
+            [base / "config.json", base / "settings.json",
+             base / "mcp.json", base / "mcp_config.json"],
+            [base / "plugins", base / "extensions"],
         )
     raise ValueError(f"不支持的 target: {target}")
 

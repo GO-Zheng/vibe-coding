@@ -29,11 +29,10 @@ uv run --no-project -m manager install
 
 | Target | Rules | Skills |
 | :--- | :--- | :--- |
+| `antigravity` | `~/.gemini/config/GEMINI.md` | `~/.gemini/config/skills/` |
 | `claude` | `~/.claude/rules/` | `~/.claude/skills/` |
 | `codex` | `~/.codex/AGENTS.md` | `~/.agents/skills/` |
 | `cursor` | `~/.cursor/rules/*.mdc` | `~/.cursor/skills/` |
-| `antigravity-cli` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity-cli/skills/` |
-| `antigravity-ide` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity/skills/` |
 
 ## 安装行为
 

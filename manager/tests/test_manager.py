@@ -106,13 +106,14 @@ class TargetTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
             cursor.install_rules([self.rule], home)
+            antigravity.install_rules([self.rule], home, "cli")
             antigravity.install_skills([self.skill], home, "cli")
             antigravity.install_skills([self.skill], home, "ide")
 
             cursor_rule = home / ".cursor/rules/core__communication.mdc"
             self.assertIn("alwaysApply:", cursor_rule.read_text(encoding="utf-8"))
-            self.assertTrue((home / ".gemini/antigravity-cli/skills/quick/SKILL.md").is_file())
-            self.assertTrue((home / ".gemini/antigravity/skills/quick/SKILL.md").is_file())
+            self.assertTrue((home / ".gemini/config/GEMINI.md").is_file())
+            self.assertTrue((home / ".gemini/config/skills/quick/SKILL.md").is_file())
 
 
 class IntegrationTest(unittest.TestCase):
@@ -137,6 +138,22 @@ class IntegrationTest(unittest.TestCase):
             statuses = check_target("cursor", home)
 
             self.assertEqual(statuses[1].state, "installed")
+
+    def test_antigravity_variants_share_config_paths(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            (home / ".gemini/config/skills/superpowers").mkdir(parents=True)
+            mcp_path = home / ".gemini/config/mcp_config.json"
+            mcp_path.parent.mkdir(parents=True, exist_ok=True)
+            mcp_path.write_text('{"context7": {}}', encoding="utf-8")
+
+            cli_statuses = check_target("antigravity-cli", home, "cli")
+            ide_statuses = check_target("antigravity-ide", home, "ide")
+
+            self.assertEqual([item.state for item in cli_statuses],
+                             ["installed", "installed"])
+            self.assertEqual([item.state for item in ide_statuses],
+                             ["installed", "installed"])
 
     def test_install_warns_but_continues_when_integrations_are_missing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

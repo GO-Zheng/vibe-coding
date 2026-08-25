@@ -40,7 +40,6 @@ description: 说明 Skill 做什么以及何时使用.
 
 > 如果有变更, 以官方文档为准
 
-- [Antigravity CLI](https://antigravity.google/docs/cli/plugins/)
-- [Antigravity IDE](https://antigravity.google/docs/ide/skills/)
+- [Antigravity](https://antigravity.google/docs/ide/skills/)
 - [Claude](https://code.claude.com/docs/zh-CN/skills)
 - [Cursor](https://cursor.com/cn/docs/skills)

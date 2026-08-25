@@ -48,6 +48,6 @@ rules:
 
 > 如果有变更, 以官方文档为准
 
-- [Antigravity IDE](https://antigravity.google/docs/ide/rules/)
+- [Antigravity](https://antigravity.google/docs/ide/rules/)
 - [Cursor](https://cursor.com/docs/rules)
 - [Claude](https://code.claude.com/docs/zh-CN/memory)
