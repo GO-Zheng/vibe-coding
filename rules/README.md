@@ -2,7 +2,7 @@
 
 可组合的规则片段, **单一数据源 (SSOT)**.
 
-本目录只维护**纯 Markdown 正文** (无 YAML frontmatter). 各工具的 frontmatter 由 `manifest.yaml` + `adapters/` 生成.
+本目录只维护**纯 Markdown 正文** (无 YAML frontmatter). 各工具的 frontmatter 由 `manifest.yaml` + `manager/` 生成.
 
 ## 目录
 
@@ -17,7 +17,7 @@
 
 1. 源文件使用纯 Markdown, 一条规则一个文件, 尽量少于 50 行.
 2. 在 `manifest.yaml` 声明 `description`, 必要时声明 `alwaysApply` 或 `globs`.
-3. 写好源文件后更新 manifest, 审阅, 再运行 `adapters/install.sh`.
+3. 写好源文件后更新 manifest, 审阅, 再运行 `uv run --no-project -m manager install`.
 
 ### 源文件模板 (本仓库 SSOT)
 
@@ -71,7 +71,7 @@ alwaysApply: true
 
 **User Rules** (Settings → Rules): 纯文本, 无 frontmatter, 全局个人偏好. 见 [cursor.com/docs/rules](https://cursor.com/docs/rules).
 
-本仓库通过 `adapters/cursor.sh` 从 `rules/` + `manifest.yaml` 生成 `~/.cursor/rules/*.mdc`.
+本仓库通过 `manager/` 从 `rules/` + `manifest.yaml` 生成 `~/.cursor/rules/*.mdc`.
 
 ---
 
@@ -105,14 +105,14 @@ paths:
 @rules/core/communication.md
 ```
 
-本仓库通过 `adapters/claude.sh` 同步 `AGENTS.md` + `CLAUDE.md` 桥接.
+本仓库通过 `manager/` 将 Rules 同步到 `~/.claude/rules/`.
 
 ---
 
 ### AGENTS.md — 跨工具通用入口
 
 - **规范**: [agents.md](https://agents.md/) (社区约定)
-- **支持**: Cursor, Codex, Xcode, Windsurf, Cline 等
+- **支持**: Cursor, Codex 等遵循 `AGENTS.md` 约定的工具
 - **格式**: 纯 Markdown, 无 frontmatter
 
 ```markdown
@@ -129,10 +129,10 @@ paths:
 
 ## 同步
 
-```bash
-./adapters/install.sh --cursor   # 生成 ~/.cursor/rules/*.mdc
-./adapters/install.sh --claude   # AGENTS.md + CLAUDE.md 桥接
-./adapters/install.sh            # 全部工具
+```shell
+uv run --no-project -m manager install --target cursor   # 生成 ~/.cursor/rules/*.mdc
+uv run --no-project -m manager install --target claude   # 同步 Claude Code Rules
+uv run --no-project -m manager install                  # 全部工具
 ```
 
 ## 已定稿规则

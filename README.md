@@ -1,69 +1,73 @@
 # vibe-coding
 
-跨 AI 编程工具的通用工作流与规则库.
-在本项目集中维护 `rules/` 与 `skills/`,通过适配器脚本一键编译并同步部署到各个 AI Coding Agent.
+跨 AI 编程工具的通用工作流, Rules 和 Skills 源库.
 
-## 支持的 AI 工具与适配方式
-
-| 工具 (Tool) | 规则入口 (Rules Entry) | Skills 目录 | 适配器实现机制 (Adapter Mechanism) |
-| :--- | :--- | :--- | :--- |
-| **Antigravity** | `~/.gemini/config/AGENTS.md` | `~/.gemini/config/skills/` | **编译展开**:自动将 `AGENTS.md` 中的 `@rules/...` 内联嵌入,并自动装载 `alwaysApply` 规则 |
-| **Claude Code** | `~/.claude/CLAUDE.md` | `~/.claude/skills/` | **桥接与层级同步**:通过 `CLAUDE.md` 引用 `AGENTS.md`,同步规则时完整保留 `rules/` 的子目录层级结构 |
-| **Codex (OpenAI)** | `~/.codex/AGENTS.md` | `~/.codex/skills/` | **编译展开与层级同步**:同步 `AGENTS.md` 内联展开并发布规则与技能树 |
-| **Cursor** | `~/.cursor/rules/*.mdc` | `~/.cursor/skills/` | **.mdc 生成**:根据 `manifest.yaml` 将纯 Markdown 规则编译为带有 `description`/`globs`/`alwaysApply` 头部的 `.mdc` 文件 |
-| **Hermes** | `SOUL.md` (可选) | `~/.hermes/skills/` | **标准装载**:复制标准 Agent Skills,支持配置 `external_dirs` 挂载 |
+本仓库当前维护 Claude Code, Codex, Cursor 和 Antigravity 的用户级安装。Hermes 和 Xcode 不在维护范围内.
 
 ## 快速开始
 
-```bash
-# 一键安装/同步到所有已配置的工具
-./adapters/install.sh
+在仓库根目录运行:
 
-# 按需同步指定 AI 工具
-./adapters/install.sh --antigravity
-./adapters/install.sh --claude
-./adapters/install.sh --codex
-./adapters/install.sh --cursor
-./adapters/install.sh --hermes
-
-# 预览同步动作 (不实际写入文件)
-./adapters/install.sh --dry-run
+```shell
+uv run --no-project -m manager list
+uv run --no-project -m manager install
 ```
+
+查看帮助:
+
+```shell
+uv run --no-project -m manager install --help
+```
+
+常用筛选:
+
+```shell
+uv run --no-project -m manager list --target cursor
+uv run --no-project -m manager list --kind skills
+uv run --no-project -m manager install --target claude
+uv run --no-project -m manager install --target cursor --rule core/communication.md
+uv run --no-project -m manager install --target cursor --skill quick
+```
+
+`antigravity` 默认同时处理 CLI 和 IDE, 也可以使用 `antigravity-cli` 或 `antigravity-ide` 单独安装.
+
+## 用户级目标路径
+
+| Target | Rules | Skills |
+| :--- | :--- | :--- |
+| `claude` | `~/.claude/rules/` | `~/.claude/skills/` |
+| `codex` | `~/.codex/AGENTS.md` | `~/.agents/skills/` |
+| `cursor` | `~/.cursor/rules/*.mdc` | `~/.cursor/skills/` |
+| `antigravity-cli` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity-cli/skills/` |
+| `antigravity-ide` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity/skills/` |
+
+## 行为约定
+
+- 每次 `install` 前自动检查目标工具的 `superpowers` 和 `Context7 MCP` 配置.
+- 已检测到时静默继续, 未检测到或无法确认时输出 warning, 但不会阻止安装.
+- `install` 默认覆盖同名 Rule 或 Skill, 不删除目标目录中的其他文件.
+- Codex 和 Antigravity 的单文件 Rules 只更新 `vibe-coding` 受控区块, 保留用户区块外内容.
+- Cursor 根据 `rules/manifest.yaml` 生成 `.mdc` 文件.
+- `list` 只读取源文件和用户级目标状态, 不修改用户文件.
 
 ## 目录结构
 
 ```shell
 vibe-coding/
-├── AGENTS.md          # 跨工具通用指令 (SSOT 入口,包含 @rules 引用)
-├── CLAUDE.md          # Claude Code 桥接文件 (由 sync 自动生成)
-├── README.md          # 项目使用指南与架构说明
-├── rules/             # 可组合规则片段 (SSOT 源码)
-│   ├── manifest.yaml  # 规则元数据 (Cursor .mdc 生成映射与 alwaysApply 标记)
-│   ├── core/          # 沟通, 书写风格, 代码原则, Superpowers 与通用原则
-│   ├── workflows/     # Git 工作流, 文档同步, 领域建模
-│   ├── docs/          # 图示, 目录结构, 文档格式规范
-│   └── languages/     # 语言专项 (Rust, Python 等)
-├── skills/            # Agent Skills 标准库 (包含 SKILL.md)
-│   ├── code-review/   # 单 Agent 代码审核技能
-│   ├── grilling/      # 盘问式设计澄清技能
-│   ├── handoff/       # 会话交接与摘要生成技能
-│   ├── plan-review/   # 单 Agent 计划审核技能
-│   ├── quick/         # 轻便快捷工作流技能
-│   └── quick-test/    # Git diff 定向测试技能
-└── adapters/          # 各 AI 工具适配与部署脚本
-    ├── install.sh     # 总控入口脚本
-    ├── common.sh      # 共享 helper (含 Antigravity 展开, Cursor 编译等核心逻辑)
-    ├── antigravity.sh # Antigravity IDE 部署适配器
-    ├── codex.sh       # OpenAI Codex 部署适配器
-    ├── cursor.sh      # Cursor Rules/.mdc 编译适配器
-    ├── claude.sh      # Claude Code 部署适配器
-    └── hermes.sh      # Hermes Agent 部署适配器
+├── manager/          # 用户级 Rules 和 Skills 管理器
+│   ├── targets/      # 各 AI 工具的路径和格式适配
+│   ├── cli.py        # 命令行参数和命令调度
+│   ├── common.py     # 源文件扫描和共享文件操作
+│   └── README.md     # 管理器使用说明
+├── rules/            # Rules 源文件和 manifest
+├── skills/           # Agent Skills 源目录
+├── AGENTS.md         # 通用指令入口
+└── README.md         # 项目说明
 ```
 
 ## 设计原则
 
-1. **SSOT (Single Source of Truth)**:只在本仓库编辑与维护 `rules/` 和 `skills/` 源文件,严禁在各 AI 工具配置目录下手动散乱修改.
-2. **物理复制与隔离部署**:适配器脚本会将真实的文本与技能目录解包, 展开并物理复制到各 AI 工具的本地配置路径(而非使用软链接 symlink),保证各工具独立可靠.
-3. **全局优先,解耦项目**:默认部署到用户级配置路径(如 `~/.gemini/config`, `~/.cursor`, `~/.claude`),跨项目通用.
-4. **项目级 Overlay 扩展**:个别项目若有特定业务约束,可在项目根目录放置 `.agents/AGENTS.md` 或 `.cursor/rules/` 进行无缝叠加,不污染全局主库.
+1. SSOT: 只在本仓库编辑和维护 `rules/` 与 `skills/` 源文件.
+2. 用户级安装: 默认写入各工具的用户级目录, 不修改项目级配置.
+3. 最小变更: 安装单个 Rule 或 Skill 时只更新对应内容.
 

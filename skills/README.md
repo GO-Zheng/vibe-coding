@@ -38,15 +38,16 @@ description: 说明 Skill 做什么以及何时使用.
 
 ## 工具同步
 
-- Antigravity: 复制到 `~/.gemini/config/skills/`.
+- Antigravity CLI: 复制到 `~/.gemini/antigravity-cli/skills/`.
+- Antigravity IDE: 复制到 `~/.gemini/antigravity/skills/`.
 - Claude Code: 复制到 `~/.claude/skills/`.
-- Codex: 复制到 `~/.codex/skills/`.
+- Codex: 复制到 `~/.agents/skills/`.
 - Cursor: 复制到 `~/.cursor/skills/`.
 
-```bash
-./adapters/install.sh  # 同步全部工具
-./adapters/install.sh --claude
-./adapters/install.sh --cursor
+```shell
+uv run --no-project -m manager install                 # 同步全部工具
+uv run --no-project -m manager install --target claude
+uv run --no-project -m manager install --target cursor
 ```
 
 ## 官方文档

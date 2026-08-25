@@ -1,6 +1,6 @@
 # Rule
 
-> Claude Code 原生引用展开;Antigravity / Cursor / Xcode 等通过 adapters 自动编译展开与生成.
+> Rules 和 Skills 的源文件维护在本仓库中, 使用 `manager/` 安装到支持的 AI 工具用户级目录.
 
 ## 1. 核心与原则 (Core)
 @rules/core/communication.md
