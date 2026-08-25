@@ -26,4 +26,4 @@
 @rules/languages/rust.md
 @rules/languages/python.md
 
-
+- [AGENTS.md](https://agents.md/)

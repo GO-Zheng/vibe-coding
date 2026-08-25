@@ -25,6 +25,16 @@ uv run --no-project -m manager install
 
 `--rule` 和 `--skill` 互斥. 未选择具体项时, 安装指定目标的全部内容.
 
+## 用户级目标路径
+
+| Target | Rules | Skills |
+| :--- | :--- | :--- |
+| `claude` | `~/.claude/rules/` | `~/.claude/skills/` |
+| `codex` | `~/.codex/AGENTS.md` | `~/.agents/skills/` |
+| `cursor` | `~/.cursor/rules/*.mdc` | `~/.cursor/skills/` |
+| `antigravity-cli` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity-cli/skills/` |
+| `antigravity-ide` | `~/.gemini/GEMINI.md` | `~/.gemini/antigravity/skills/` |
+
 ## 安装行为
 
 - 每次 `install` 前自动检查目标工具的 `superpowers` 和 `Context7 MCP` 配置.
