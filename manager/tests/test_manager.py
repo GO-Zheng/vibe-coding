@@ -102,13 +102,12 @@ class TargetTest(unittest.TestCase):
             self.assertIn("user content", content)
             self.assertIn("core/communication.md", content)
 
-    def test_cursor_renders_mdc_and_antigravity_uses_variant_paths(self) -> None:
+    def test_cursor_renders_mdc_and_antigravity_uses_config_paths(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
             cursor.install_rules([self.rule], home)
-            antigravity.install_rules([self.rule], home, "cli")
-            antigravity.install_skills([self.skill], home, "cli")
-            antigravity.install_skills([self.skill], home, "ide")
+            antigravity.install_rules([self.rule], home)
+            antigravity.install_skills([self.skill], home)
 
             cursor_rule = home / ".cursor/rules/core__communication.mdc"
             self.assertIn("alwaysApply:", cursor_rule.read_text(encoding="utf-8"))
@@ -139,7 +138,7 @@ class IntegrationTest(unittest.TestCase):
 
             self.assertEqual(statuses[1].state, "installed")
 
-    def test_antigravity_variants_share_config_paths(self) -> None:
+    def test_antigravity_uses_config_paths(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
             (home / ".gemini/config/skills/superpowers").mkdir(parents=True)
@@ -147,12 +146,9 @@ class IntegrationTest(unittest.TestCase):
             mcp_path.parent.mkdir(parents=True, exist_ok=True)
             mcp_path.write_text('{"context7": {}}', encoding="utf-8")
 
-            cli_statuses = check_target("antigravity-cli", home, "cli")
-            ide_statuses = check_target("antigravity-ide", home, "ide")
+            statuses = check_target("antigravity", home)
 
-            self.assertEqual([item.state for item in cli_statuses],
-                             ["installed", "installed"])
-            self.assertEqual([item.state for item in ide_statuses],
+            self.assertEqual([item.state for item in statuses],
                              ["installed", "installed"])
 
     def test_install_warns_but_continues_when_integrations_are_missing(self) -> None:

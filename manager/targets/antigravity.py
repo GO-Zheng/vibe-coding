@@ -24,8 +24,7 @@ def rules_path(user_home: Path, variant: str | None = None) -> Path:
 
 
 def skills_root(user_home: Path, variant: str | None = None) -> Path:
-    if variant not in {"cli", "ide"}:
-        raise ValueError("Antigravity target 必须指定 cli 或 ide")
+    del variant
     return user_home / ".gemini" / "config" / "skills"
 
 

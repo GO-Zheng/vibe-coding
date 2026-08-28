@@ -86,7 +86,7 @@ def _paths_for_target(
             [base / "mcp.json", base / "settings.json"],
             [base / "plugins", base / "extensions"],
         )
-    if target in {"antigravity-cli", "antigravity-ide"}:
+    if target == "antigravity":
         base = user_home / ".gemini" / "config"
         return (
             [base / "skills", base / "plugins", base / "extensions"],

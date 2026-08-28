@@ -18,7 +18,7 @@ uv run --no-project -m manager install
 
 ## 命令参数
 
-- `--target`: `all`, `claude`, `codex`, `cursor`, `antigravity`, `antigravity-cli` 或 `antigravity-ide`.
+- `--target`: `all`, `claude`, `codex`, `cursor` 或 `antigravity`.
 - `--kind`: `all`, `rules` 或 `skills`.
 - `--rule`: 只选择一个 Rule, 例如 `core/communication.md`.
 - `--skill`: 只选择一个 Skill, 例如 `quick`.
