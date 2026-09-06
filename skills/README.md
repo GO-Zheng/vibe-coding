@@ -41,5 +41,6 @@ description: 说明 Skill 做什么以及何时使用.
 > 如果有变更, 以官方文档为准
 
 - [Antigravity](https://antigravity.google/docs/ide/skills/)
+- [CodeBuddy](https://www.codebuddy.ai/docs/zh/ide/User-guide/Skills)
 - [Claude](https://code.claude.com/docs/zh-CN/skills)
 - [Cursor](https://cursor.com/cn/docs/skills)

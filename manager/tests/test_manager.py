@@ -11,7 +11,7 @@ from unittest.mock import patch
 from manager import common
 from manager.cli import main
 from manager.integrations import check_target
-from manager.targets import antigravity, claude, codex, cursor
+from manager.targets import antigravity, claude, codebuddy, codex, cursor
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -90,6 +90,17 @@ class TargetTest(unittest.TestCase):
             self.assertEqual(rule_path.read_text(encoding="utf-8"), self.rule.content)
             self.assertNotEqual(skill_path.read_text(encoding="utf-8"), "stale")
 
+    def test_codebuddy_copies_rule_and_skill(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            codebuddy.install_rules([self.rule], home)
+            codebuddy.install_skills([self.skill], home)
+
+            rule_path = home / ".codebuddy/rules/communication.mdc"
+            self.assertTrue(rule_path.is_file())
+            self.assertIn("alwaysApply:", rule_path.read_text(encoding="utf-8"))
+            self.assertTrue((home / ".codebuddy/skills/quick/SKILL.md").is_file())
+
     def test_codex_preserves_existing_agents_content(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
@@ -109,9 +120,9 @@ class TargetTest(unittest.TestCase):
             antigravity.install_rules([self.rule], home)
             antigravity.install_skills([self.skill], home)
 
-            cursor_rule = home / ".cursor/rules/core__communication.mdc"
+            cursor_rule = home / ".cursor/rules/communication.mdc"
             self.assertIn("alwaysApply:", cursor_rule.read_text(encoding="utf-8"))
-            self.assertTrue((home / ".gemini/config/GEMINI.md").is_file())
+            self.assertTrue((home / ".gemini/GEMINI.md").is_file())
             self.assertTrue((home / ".gemini/config/skills/quick/SKILL.md").is_file())
 
 
@@ -151,6 +162,17 @@ class IntegrationTest(unittest.TestCase):
             self.assertEqual([item.state for item in statuses],
                              ["installed", "installed"])
 
+    def test_codebuddy_detects_context7_mcp_configuration(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            home = Path(directory)
+            mcp_path = home / ".codebuddy/mcp.json"
+            mcp_path.parent.mkdir(parents=True)
+            mcp_path.write_text('{"mcpServers": {"Context7": {}}}', encoding="utf-8")
+
+            statuses = check_target("codebuddy", home)
+
+            self.assertEqual(statuses[1].state, "installed")
+
     def test_install_warns_but_continues_when_integrations_are_missing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             home = Path(directory)
@@ -162,7 +184,7 @@ class IntegrationTest(unittest.TestCase):
 
             self.assertEqual(result, 0)
             self.assertIn("warning:", output.getvalue())
-            self.assertTrue((home / ".cursor/rules/core__communication.mdc").is_file())
+            self.assertTrue((home / ".cursor/rules/communication.mdc").is_file())
 
 
 if __name__ == "__main__":

@@ -72,6 +72,13 @@ def _paths_for_target(
              base / "mcp.json", user_home / ".mcp.json"],
             [base / "plugins"],
         )
+    if target == "codebuddy":
+        base = user_home / ".codebuddy"
+        return (
+            [base / "skills", base / "plugins"],
+            [base / "mcp.json", base / "settings.json"],
+            [base / "plugins", base / "skills-marketplace"],
+        )
     if target == "codex":
         base = resolve_codex_home(user_home)
         return (

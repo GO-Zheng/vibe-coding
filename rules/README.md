@@ -49,5 +49,6 @@ rules:
 > 如果有变更, 以官方文档为准
 
 - [Antigravity](https://antigravity.google/docs/ide/rules/)
+- [CodeBuddy](https://www.codebuddy.ai/docs/zh/ide/User-guide/Rules)
 - [Cursor](https://cursor.com/docs/rules)
 - [Claude](https://code.claude.com/docs/zh-CN/memory)

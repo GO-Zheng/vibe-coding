@@ -10,8 +10,8 @@ from ..common import (
     RuleSource,
     SkillSource,
     copy_tree,
-    cursor_rule_name,
     render_cursor_rule,
+    rule_name,
 )
 
 
@@ -31,7 +31,7 @@ def install_rules(
     destination = rules_root(user_home, variant)
     results = []
     for rule in rules:
-        target = destination / cursor_rule_name(rule.relative_path)
+        target = destination / rule_name(rule.relative_path)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(render_cursor_rule(rule), encoding="utf-8")
         results.append(InstallResult("rule", str(rule.relative_path), target))
@@ -61,8 +61,8 @@ def list_status(
     return [
         *[
             InstallStatus("rule", str(rule.relative_path),
-                          rules_path / cursor_rule_name(rule.relative_path),
-                          (rules_path / cursor_rule_name(rule.relative_path)).is_file())
+                          rules_path / rule_name(rule.relative_path),
+                          (rules_path / rule_name(rule.relative_path)).is_file())
             for rule in rules
         ],
         *[

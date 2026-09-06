@@ -190,8 +190,8 @@ def managed_rule_installed(path: Path, name: str, begin: str, end: str) -> bool:
     return f"<!-- vibe-coding:rule:{name} -->" in content[start:stop]
 
 
-def cursor_rule_name(relative_path: Path) -> str:
-    return relative_path.as_posix().replace("/", "__").removesuffix(".md") + ".mdc"
+def rule_name(relative_path: Path) -> str:
+    return relative_path.stem + ".mdc"
 
 
 def _quote_yaml(value: str) -> str:

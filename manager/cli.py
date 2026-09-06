@@ -33,7 +33,7 @@ def _build_parser() -> argparse.ArgumentParser:
         command.add_argument(
             "--target",
             default="all",
-            choices=["all", "claude", "codex", "cursor", "antigravity"],
+            choices=["all", "claude", "codebuddy", "codex", "cursor", "antigravity"],
             help="安装目标, 默认处理全部目标",
         )
         command.add_argument(

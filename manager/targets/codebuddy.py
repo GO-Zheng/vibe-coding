@@ -1,4 +1,4 @@
-"""Antigravity CLI 和 IDE 用户级 Rules 与 Skills 目标."""
+"""CodeBuddy 用户级 Rules 和 Skills 目标."""
 
 from __future__ import annotations
 
@@ -10,31 +10,32 @@ from ..common import (
     RuleSource,
     SkillSource,
     copy_tree,
-    managed_rule_installed,
-    update_managed_rules,
+    render_cursor_rule,
+    rule_name,
 )
 
-BEGIN = "<!-- vibe-coding:begin -->"
-END = "<!-- vibe-coding:end -->"
 
-
-def rules_path(user_home: Path, variant: str | None = None) -> Path:
+def rules_root(user_home: Path, variant: str | None = None) -> Path:
     del variant
-    return user_home / ".gemini" / "GEMINI.md"
+    return user_home / ".codebuddy" / "rules"
 
 
 def skills_root(user_home: Path, variant: str | None = None) -> Path:
     del variant
-    return user_home / ".gemini" / "config" / "skills"
+    return user_home / ".codebuddy" / "skills"
 
 
 def install_rules(
     rules: list[RuleSource], user_home: Path, variant: str | None = None
 ) -> list[InstallResult]:
-    path = rules_path(user_home, variant)
-    selected = {rule.relative_path.as_posix(): rule.content for rule in rules}
-    update_managed_rules(path, selected, BEGIN, END)
-    return [InstallResult("rules", "GEMINI.md", path)]
+    destination = rules_root(user_home, variant)
+    results = []
+    for rule in rules:
+        target = destination / rule_name(rule.relative_path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(render_cursor_rule(rule), encoding="utf-8")
+        results.append(InstallResult("rule", str(rule.relative_path), target))
+    return results
 
 
 def install_skills(
@@ -55,13 +56,13 @@ def list_status(
     user_home: Path,
     variant: str | None = None,
 ) -> list[InstallStatus]:
-    path = rules_path(user_home, variant)
+    rules_path = rules_root(user_home, variant)
     skills_path = skills_root(user_home, variant)
     return [
         *[
-            InstallStatus("rule", str(rule.relative_path), path,
-                          managed_rule_installed(path, rule.relative_path.as_posix(),
-                                                  BEGIN, END))
+            InstallStatus("rule", str(rule.relative_path),
+                          rules_path / rule_name(rule.relative_path),
+                          (rules_path / rule_name(rule.relative_path)).is_file())
             for rule in rules
         ],
         *[
