@@ -11,7 +11,7 @@ from unittest.mock import patch
 from manager import common
 from manager.cli import main
 from manager.integrations import check_target
-from manager.targets import antigravity, claude, codebuddy, codex, cursor
+from manager.targets import antigravity, claude, codex, cursor
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -23,7 +23,7 @@ class CommonTest(unittest.TestCase):
         skills = common.discover_skills(REPO_ROOT)
 
         self.assertIn(Path("core/communication.md"), [item.relative_path for item in rules])
-        self.assertIn("quick", [item.name for item in skills])
+        self.assertIn("grilling", [item.name for item in skills])
         self.assertNotIn("README.md", [item.relative_path.name for item in rules])
 
     def test_codex_home_honors_environment(self) -> None:
@@ -71,7 +71,7 @@ class TargetTest(unittest.TestCase):
         self.skills = common.discover_skills(REPO_ROOT)
         self.rule = next(item for item in self.rules
                          if item.relative_path == Path("core/communication.md"))
-        self.skill = next(item for item in self.skills if item.name == "quick")
+        self.skill = next(item for item in self.skills if item.name == "grilling")
 
     def test_claude_copies_rule_and_skill(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -80,7 +80,7 @@ class TargetTest(unittest.TestCase):
             claude.install_skills([self.skill], home)
 
             rule_path = home / ".claude/rules/core/communication.md"
-            skill_path = home / ".claude/skills/quick/SKILL.md"
+            skill_path = home / ".claude/skills/grilling/SKILL.md"
             self.assertTrue(rule_path.is_file())
             self.assertTrue(skill_path.is_file())
             rule_path.write_text("stale", encoding="utf-8")
@@ -90,16 +90,6 @@ class TargetTest(unittest.TestCase):
             self.assertEqual(rule_path.read_text(encoding="utf-8"), self.rule.content)
             self.assertNotEqual(skill_path.read_text(encoding="utf-8"), "stale")
 
-    def test_codebuddy_copies_rule_and_skill(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            home = Path(directory)
-            codebuddy.install_rules([self.rule], home)
-            codebuddy.install_skills([self.skill], home)
-
-            rule_path = home / ".codebuddy/rules/communication.mdc"
-            self.assertTrue(rule_path.is_file())
-            self.assertIn("alwaysApply:", rule_path.read_text(encoding="utf-8"))
-            self.assertTrue((home / ".codebuddy/skills/quick/SKILL.md").is_file())
 
     def test_codex_preserves_existing_agents_content(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -122,8 +112,8 @@ class TargetTest(unittest.TestCase):
 
             cursor_rule = home / ".cursor/rules/communication.mdc"
             self.assertIn("alwaysApply:", cursor_rule.read_text(encoding="utf-8"))
-            self.assertTrue((home / ".gemini/GEMINI.md").is_file())
-            self.assertTrue((home / ".gemini/config/skills/quick/SKILL.md").is_file())
+            self.assertTrue((home / ".gemini/config/GEMINI.md").is_file())
+            self.assertTrue((home / ".gemini/config/skills/grilling/SKILL.md").is_file())
 
 
 class IntegrationTest(unittest.TestCase):
@@ -162,16 +152,6 @@ class IntegrationTest(unittest.TestCase):
             self.assertEqual([item.state for item in statuses],
                              ["installed", "installed"])
 
-    def test_codebuddy_detects_context7_mcp_configuration(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            home = Path(directory)
-            mcp_path = home / ".codebuddy/mcp.json"
-            mcp_path.parent.mkdir(parents=True)
-            mcp_path.write_text('{"mcpServers": {"Context7": {}}}', encoding="utf-8")
-
-            statuses = check_target("codebuddy", home)
-
-            self.assertEqual(statuses[1].state, "installed")
 
     def test_install_warns_but_continues_when_integrations_are_missing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

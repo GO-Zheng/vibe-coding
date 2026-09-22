@@ -33,7 +33,7 @@ def _build_parser() -> argparse.ArgumentParser:
         command.add_argument(
             "--target",
             default="all",
-            choices=["all", "claude", "codebuddy", "codex", "cursor", "antigravity"],
+            choices=["all", "claude", "codex", "cursor", "antigravity"],
             help="安装目标, 默认处理全部目标",
         )
         command.add_argument(
@@ -43,7 +43,7 @@ def _build_parser() -> argparse.ArgumentParser:
     install = commands.choices["install"]
     selection = install.add_mutually_exclusive_group()
     selection.add_argument("--rule", help="只安装指定 Rule, 例如 core/communication.md")
-    selection.add_argument("--skill", help="只安装指定 Skill, 例如 quick")
+    selection.add_argument("--skill", help="只安装指定 Skill, 例如 grilling")
     return parser
 
 

@@ -20,7 +20,7 @@ END = "<!-- vibe-coding:end -->"
 
 def rules_path(user_home: Path, variant: str | None = None) -> Path:
     del variant
-    return user_home / ".gemini" / "GEMINI.md"
+    return user_home / ".gemini" / "config" / "GEMINI.md"
 
 
 def skills_root(user_home: Path, variant: str | None = None) -> Path:

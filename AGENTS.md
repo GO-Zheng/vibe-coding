@@ -8,7 +8,6 @@
 @rules/core/honor-and-dishonor.md
 @rules/core/rule-conflict-resolution.md
 @rules/core/writing-style.md
-@rules/core/superpowers.md
 @rules/core/testing-scope.md
 @rules/core/twelve-factor-app.md
 

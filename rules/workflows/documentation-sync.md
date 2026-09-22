@@ -10,11 +10,6 @@
 - `AGENTS.md`, `CONTEXT.md`: 术语, 硬约束或工作流.
 - `CHANGELOG.md`: 项目已有更新日志惯例时.
 
-## 过程制品
-
-- 工作区根 `superpowers/plans/`, `superpowers/specs/` 不进项目仓库, 也不从项目文档引用.
-- 对仓库仍有效的结论和约束, 写入本仓 `docs/`, `DESIGN` 或 `ARCHITECTURE`.
-
 ## 操作要求
 
 - 文档有影响时, 更新后再提交.

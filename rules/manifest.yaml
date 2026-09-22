@@ -62,7 +62,3 @@ rules:
   - source: languages/python.md
     description: 修改 Python 项目时使用 uv 管理依赖和环境
     globs: "**/*.py"
-
-  - source: core/superpowers.md
-    description: 执行 plan, 测试 seam 和用户确认流程时使用
-    alwaysApply: true
